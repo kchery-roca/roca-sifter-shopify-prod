@@ -159,9 +159,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "dev": "concurrently \"npm run watch\" \"shopify theme dev\"",
-    "start": "webpack --mode development --watch",
-    "prod-development": "concurrently \"npm run watch\" \"shopify theme dev --environment production\""
+    "start": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",

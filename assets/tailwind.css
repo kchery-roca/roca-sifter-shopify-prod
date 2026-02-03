@@ -1,9 +1,20 @@
 /*!**************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/tailwind.css ***!
   \**************************************************************************************************************/
-.tw-bg-yellow-500 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1))
+.tw-col-span-1 {
+    grid-column: span 1 / span 1
+}
+.tw-col-span-3 {
+    grid-column: span 3 / span 3
+}
+.tw-col-span-4 {
+    grid-column: span 4 / span 4
+}
+.tw-grid {
+    display: grid
+}
+.tw-grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr))
 }
 .tw-bg-red-500 {
     --tw-bg-opacity: 1;
@@ -11,6 +22,9 @@
 }
 .tw-p-4 {
     padding: 1rem
+}
+.tw-text-center {
+    text-align: center
 }
 .tw-text-white {
     --tw-text-opacity: 1;
