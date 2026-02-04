@@ -53,7 +53,7 @@
 
         <div class="tw-grid tw-grid-cols-4">
           <div class="tw-col-span-4 md:tw-col-span-1">
-            <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+            <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset tw-p-0 tw-mb-2">
               {%- if settings.logo != blank -%}
                 <div class="header__heading-logo-wrapper">
                   {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
@@ -183,22 +183,22 @@
             {%- endif -%}
           </div>
           <div class="tw-col-span-4 tw-px-auto tw-text-left md:tw-text-center">
-            <br />
-            <ul class="tw-list-none tw-p-0 tw-m-0 tw-flex tw-flex-col tw-gap-[2rem] tw-mt-5">
-              <li class="!tw-text-xs">All original content herein is Copyright © TCGplayer, Inc. TCGplayer.com is a trademark of TCGplayer, Inc.</li>
-              <li class="!tw-text-xs">No portion of this website may be used without expressed written consent. All rights reserved.</li>
-              <li class="!tw-text-xs"><a target="_blank" href="https://magic.wizards.com/en" class="tw-text-black">Magic: The Gathering</a> and its respective properties are copyright © <a target="_blank" href="https://company.wizards.com/en" class="tw-text-black">Wizards of the Coast.</a></li>
-              <li class="!tw-text-xs"><a target="_blank" href="https://www.yugioh-card.com/en/" class="tw-text-black">Yu-Gi-Oh!</a> and its respective properties are © 2020 Studio Dice/SHUEISHA, TV TOKYO, KONAMI.</li>
-              <li class="!tw-text-xs"><a target="_blank" href="https://www.yugioh-card.com/en/" class="tw-text-black">Cardfight!! Vanguard</a> and <a target="_blank" href="https://en.shadowverse-evolve.com/" class="tw-text-black">Shadowverse: Evolve</a>, and <a target="_blank" href="https://en.ws-tcg.com/" class="tw-text-black">Weiß Schwarz</a> are ©bushiroad All Rights Reserved.</li>
-              <li class="!tw-text-xs">Disney Lorcana and its respective properties are © <a target="_blank" href="https://www.disney.com/" class="tw-text-black">Disney</a></li>
+            <br class="tw-hidden md:tw-block"/>
+            <ul class="tw-list-none tw-p-0 tw-m-0 tw-flex tw-flex-col tw-gap-[1.5rem] md:tw-gap-[2rem] md:tw-mt-5">
+              <li class="!tw-text-xs !tw-tracking-[0.14px]">All original content herein is Copyright © TCGplayer, Inc. TCGplayer.com is a trademark of TCGplayer, Inc.</li>
+              <li class="!tw-text-xs !tw-tracking-[0.14px]">No portion of this website may be used without expressed written consent. All rights reserved.</li>
+              <li class="!tw-text-xs !tw-tracking-[0.14px]"><a target="_blank" href="https://magic.wizards.com/en" class="tw-text-black">Magic: The Gathering</a> and its respective properties are copyright © <a target="_blank" href="https://company.wizards.com/en" class="tw-text-black">Wizards of the Coast.</a></li>
+              <li class="!tw-text-xs !tw-tracking-[0.14px]"><a target="_blank" href="https://www.yugioh-card.com/en/" class="tw-text-black">Yu-Gi-Oh!</a> and its respective properties are © 2020 Studio Dice/SHUEISHA, TV TOKYO, KONAMI.</li>
+              <li class="!tw-text-xs !tw-tracking-[0.14px]"><a target="_blank" href="https://www.yugioh-card.com/en/" class="tw-text-black">Cardfight!! Vanguard</a> and <a target="_blank" href="https://en.shadowverse-evolve.com/" class="tw-text-black">Shadowverse: Evolve</a>, and <a target="_blank" href="https://en.ws-tcg.com/" class="tw-text-black">Weiß Schwarz</a> are ©bushiroad All Rights Reserved.</li>
+              <li class="!tw-text-xs !tw-tracking-[0.14px]">Disney Lorcana and its respective properties are © <a target="_blank" href="https://www.disney.com/" class="tw-text-black">Disney</a></li>
             </ul>
-            <div class="tw-text-center tw-flex tw-justify-center tw-w-full">
+            <div class=" md:tw-text-center tw-flex md:tw-justify-center tw-w-full">
               <ul class="tw-list-none tw-p-0 tw-m-0 tw-flex tw-gap-2 tw-mt-5">
-                <li class="!tw-text-xs">
+                <li class="!tw-text-[14px]">
                   <a href="https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy?_gl=1%2Afw0uqz%2A_gcl_au%2AOTAwNTQwODQ4LjE3MjIwMTE4NzIuNzc4MTQ0MDY0LjE3MjYxNjg0MTkuMTcyNjE2ODQxOQ..%2A_ga%2ANjc3NDQ2MzkwLjE3MTQwNjgwNjA.%2A_ga_VS9BE2Z3GY%2AMTcyNzc5OTc1NC4xNDEuMS4xNzI3ODAwODY1LjQxLjAuMA.." target="_blank" class="tw-text-black">Privacy Policy</a>
                 </li>
                 <li>|</li>
-                <li class="!tw-text-xs">
+                <li class="!tw-text-[14px]">
                   <a href="https://help.tcgplayer.com/hc/en-us/articles/205004918-Terms-of-Service?_gl=1*1fwsdo1*_gcl_au*OTAwNTQwODQ4LjE3MjIwMTE4NzIuNzc4MTQ0MDY0LjE3MjYxNjg0MTkuMTcyNjE2ODQxOQ..*_ga*Njc3NDQ2MzkwLjE3MTQwNjgwNjA.*_ga_VS9BE2Z3GY*MTcyNzc5OTc1NC4xNDEuMS4xNzI3ODAwODY1LjQxLjAuMA.." target="_blank" class="tw-text-black">Terms of Service</a>
                 </li>
               </ul>
@@ -346,30 +346,30 @@
       </div> {% endcomment %}
 
       <div class="tw-flex tw-justify-center tw-w-full">
-        <ul class="tw-flex tw-gap-4 tw-list-none tw-mx-auto">
-          <li>
-            <a href="https://www.facebook.com/tcgplayer/" target="_blank">
-              <img src="{{ 'facebook.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+        <ul class="tw-flex tw-gap-4 tw-list-none tw-mx-auto !tw-p-0 !tw-mt-[3rem] ">
+          <li class="tw-bg-[#595959] tw-p-3 tw-rounded-full hover:tw-bg-black">
+            <a href="https://www.facebook.com/tcgplayer/" target="_blank" class="tw-block tw-w-[24px] tw-h-[24px] tw-bg-white hover:tw-bg-gray-300"
+              style="mask: url('{{ 'facebook.svg' | asset_url }}') no-repeat center; mask-size: contain; -webkit-mask: url('{{ 'facebook.svg' | asset_url }}') no-repeat center; -webkit-mask-size: contain;">
+           </a>
+          </li>
+          <li class="tw-bg-[#595959] tw-p-3 tw-rounded-full hover:tw-bg-black">
+            <a href="https://x.com/TCGplayer" target="_blank" alt=" X Social" class="tw-block tw-w-[24px] tw-h-[24px] tw-bg-white hover:tw-bg-gray-300"
+              style="mask: url('{{ 'x.svg' | asset_url }}') no-repeat center; mask-size: contain; -webkit-mask: url('{{ 'x.svg' | asset_url }}') no-repeat center; -webkit-mask-size: contain;">
             </a>
           </li>
-          <li>
-            <a href="https://x.com/TCGplayer" target="_blank">
-                <img src="{{ 'x.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+          <li class="tw-bg-[#595959] tw-p-3 tw-rounded-full hover:tw-bg-black">
+            <a href="https://www.linkedin.com/company/1499102" target="_blank" alt=" X Social" class="tw-block tw-w-[24px] tw-h-[24px] tw-bg-white hover:tw-bg-gray-300"
+              style="mask: url('{{ 'linkedin.svg' | asset_url }}') no-repeat center; mask-size: contain; -webkit-mask: url('{{ 'linkedin.svg' | asset_url }}') no-repeat center; -webkit-mask-size: contain;">
             </a>
           </li>
-          <li>
-            <a href="https://www.linkedin.com/company/1499102" target="_blank">
-                <img src="{{ 'linkedin.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+          <li class="tw-bg-[#595959] tw-p-3 tw-rounded-full hover:tw-bg-black">
+            <a href="https://www.youtube.com/channel/UCBqvoHilLfFeal09tYVgwxA" target="_blank" alt="youtube" class="tw-block tw-w-[24px] tw-h-[24px] tw-bg-white hover:tw-bg-gray-300"
+              style="mask: url('{{ 'youtube.svg' | asset_url }}') no-repeat center; mask-size: contain; -webkit-mask: url('{{ 'youtube.svg' | asset_url }}') no-repeat center; -webkit-mask-size: contain;">
             </a>
           </li>
-          <li>
-            <a href="https://www.youtube.com/channel/UCBqvoHilLfFeal09tYVgwxA" target="_blank">
-                <img src="{{ 'youtube.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/tcgplayer_com/" target="_blank">
-                <img src="{{ 'instagram.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+          <li class="tw-bg-[#595959] tw-p-3 tw-rounded-full hover:tw-bg-black">
+            <a href="https://www.instagram.com/tcgplayer_com/" target="_blank" alt="instagram" class="tw-block tw-w-[24px] tw-h-[24px] tw-bg-white hover:tw-bg-gray-300"
+              style="mask: url('{{ 'instagram.svg' | asset_url }}') no-repeat center; mask-size: contain; -webkit-mask: url('{{ 'instagram.svg' | asset_url }}') no-repeat center; -webkit-mask-size: contain;">
             </a>
           </li>
         </ul>
@@ -377,7 +377,7 @@
 
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-      <div class="footer__copyright caption">
+      <div class="footer__copyright caption hidden">
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
         </small>
