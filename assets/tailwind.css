@@ -7,9 +7,27 @@
 .tw-col-span-4 {
     grid-column: span 4 / span 4
 }
+.tw-m-0 {
+    margin: 0px
+}
+.\!tw-m-0 {
+    margin: 0px !important
+}
 .tw-mx-auto {
     margin-left: auto;
     margin-right: auto
+}
+.tw-mt-5 {
+    margin-top: 1.25rem
+}
+.\!tw-mb-\[2px\] {
+    margin-bottom: 2px !important
+}
+.\!tw-mb-1 {
+    margin-bottom: 0.25rem !important
+}
+.\!tw-mb-2 {
+    margin-bottom: 0.5rem !important
 }
 .tw-flex {
     display: flex
@@ -32,21 +50,75 @@
 .tw-grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr))
 }
+.tw-flex-col {
+    flex-direction: column
+}
 .tw-justify-center {
     justify-content: center
 }
 .tw-gap-4 {
     gap: 1rem
 }
+.tw-gap-\[2rem\] {
+    gap: 2rem
+}
+.tw-gap-2 {
+    gap: 0.5rem
+}
+.tw-gap-1 {
+    gap: 0.25rem
+}
+.tw-border-t-0 {
+    border-top-width: 0px
+}
+.\!tw-border-t-0 {
+    border-top-width: 0px !important
+}
 .tw-bg-red-500 {
     --tw-bg-opacity: 1;
     background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1))
 }
+.tw-bg-blue-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1))
+}
+.tw-bg-\[\#EEEFF0\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(238 239 240 / var(--tw-bg-opacity, 1))
+}
+.tw-p-0 {
+    padding: 0px
+}
 .tw-p-4 {
     padding: 1rem
 }
+.\!tw-p-0 {
+    padding: 0px !important
+}
+.tw-pb-0 {
+    padding-bottom: 0px
+}
+.\!tw-pb-0 {
+    padding-bottom: 0px !important
+}
+.\!tw-pt-0 {
+    padding-top: 0px !important
+}
 .tw-text-left {
     text-align: left
+}
+.tw-text-center {
+    text-align: center
+}
+.\!tw-text-xs {
+    font-size: 12.5px !important
+}
+.\!tw-text-base {
+    font-size: 16px !important
+}
+.tw-text-black {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1))
 }
 .tw-text-white {
     --tw-text-opacity: 1;

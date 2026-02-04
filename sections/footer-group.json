@@ -17,29 +17,29 @@
         "link_list_8bMkQY": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "<strong>Company</strong>",
+            "menu": "company"
           }
         },
         "link_list_zfAVgh": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "<strong>Seller Services</strong>",
+            "menu": "seller-servicesa"
           }
         },
         "link_list_axDqPR": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "<strong>Information Hub</strong>",
+            "menu": "information-hub"
           }
         },
         "link_list_Aynaey": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "<strong>Keep in Touch</strong>",
+            "menu": "keep-in-touch"
           }
         }
       },

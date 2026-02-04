@@ -27,7 +27,7 @@
   }
 {%- endstyle -%}
 
-<footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+<footer class="footer tw-bg-[#EEEFF0] section-{{ section.id }}-padding">
   {%- liquid
     assign has_social_icons = true
     if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -49,7 +49,7 @@
     or section.settings.enable_follow_on_shop
   -%}
     {%- unless only_empty_brand -%}
-      <div class="footer__content-top page-width">
+      <div class="footer__content-top page-width !tw-pb-0 ">
 
         <div class="tw-grid tw-grid-cols-4">
           <div class="tw-col-span-4 md:tw-col-span-1">
@@ -99,7 +99,7 @@
                     {% endif %}
                   >
                     {%- if block.settings.heading != blank -%}
-                      <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                      <h2 class="footer-block__heading inline-richtext !tw-text-base !tw-mb-2 !font-bold">{{- block.settings.heading -}}</h2>
                     {%- endif -%}
     
                     {%- case block.type -%}
@@ -111,12 +111,12 @@
                         </div>
                       {%- when 'link_list' -%}
                         {%- if block.settings.menu != blank -%}
-                          <ul class="footer-block__details-content list-unstyled">
+                          <ul class="tw-flex tw-flex-col tw-gap-1 tw-list-none tw-p-0 tw-m-0">
                             {%- for link in block.settings.menu.links -%}
                               <li>
                                 <a
                                   href="{{ link.url }}"
-                                  class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                                  class="link link--text list-menu__item list-menu__item--link !tw-text-xs font-[600] !tw-p-0 !tw-m-0 {% if link.active %} list-menu__item--active{% endif %}"
                                 >
                                   {{ link.title | escape }}
                                 </a>
@@ -183,13 +183,26 @@
             {%- endif -%}
           </div>
           <div class="tw-col-span-4 tw-px-auto tw-text-left md:tw-text-center">
-            <p>All original content herein is Copyright © TCGplayer, Inc. TCGplayer.com is a trademark of TCGplayer, Inc.</p>
-            <p>No portion of this website may be used without expressed written consent. All rights reserved.</p>
-            <p>Magic: The Gathering and its respective properties are copyright © Wizards of the Coast.</p>
-            <p>Yu-Gi-Oh! and its respective properties are © 2020 Studio Dice/SHUEISHA, TV TOKYO, KONAMI.</p>
-            <p>Cardfight!! Vanguard and Shadowverse: Evolve, and Weiß Schwarz are ©bushiroad All Rights Reserved.</p>
-            <p>Disney Lorcana and its respective properties are © Disney</p>
-            <p>©2024 Pokémon. ©1995 - 2024 Nintendo/Creatures Inc./GAME FREAK inc. TM, ®Nintendo.</p>
+            <br />
+            <ul class="tw-list-none tw-p-0 tw-m-0 tw-flex tw-flex-col tw-gap-[2rem] tw-mt-5">
+              <li class="!tw-text-xs">All original content herein is Copyright © TCGplayer, Inc. TCGplayer.com is a trademark of TCGplayer, Inc.</li>
+              <li class="!tw-text-xs">No portion of this website may be used without expressed written consent. All rights reserved.</li>
+              <li class="!tw-text-xs"><a target="_blank" href="https://magic.wizards.com/en" class="tw-text-black">Magic: The Gathering</a> and its respective properties are copyright © <a target="_blank" href="https://company.wizards.com/en" class="tw-text-black">Wizards of the Coast.</a></li>
+              <li class="!tw-text-xs"><a target="_blank" href="https://www.yugioh-card.com/en/" class="tw-text-black">Yu-Gi-Oh!</a> and its respective properties are © 2020 Studio Dice/SHUEISHA, TV TOKYO, KONAMI.</li>
+              <li class="!tw-text-xs"><a target="_blank" href="https://www.yugioh-card.com/en/" class="tw-text-black">Cardfight!! Vanguard</a> and <a target="_blank" href="https://en.shadowverse-evolve.com/" class="tw-text-black">Shadowverse: Evolve</a>, and <a target="_blank" href="https://en.ws-tcg.com/" class="tw-text-black">Weiß Schwarz</a> are ©bushiroad All Rights Reserved.</li>
+              <li class="!tw-text-xs">Disney Lorcana and its respective properties are © <a target="_blank" href="https://www.disney.com/" class="tw-text-black">Disney</a></li>
+            </ul>
+            <div class="tw-text-center tw-flex tw-justify-center tw-w-full">
+              <ul class="tw-list-none tw-p-0 tw-m-0 tw-flex tw-gap-2 tw-mt-5">
+                <li class="!tw-text-xs">
+                  <a href="https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy?_gl=1%2Afw0uqz%2A_gcl_au%2AOTAwNTQwODQ4LjE3MjIwMTE4NzIuNzc4MTQ0MDY0LjE3MjYxNjg0MTkuMTcyNjE2ODQxOQ..%2A_ga%2ANjc3NDQ2MzkwLjE3MTQwNjgwNjA.%2A_ga_VS9BE2Z3GY%2AMTcyNzc5OTc1NC4xNDEuMS4xNzI3ODAwODY1LjQxLjAuMA.." target="_blank" class="tw-text-black">Privacy Policy</a>
+                </li>
+                <li>|</li>
+                <li class="!tw-text-xs">
+                  <a href="https://help.tcgplayer.com/hc/en-us/articles/205004918-Terms-of-Service?_gl=1*1fwsdo1*_gcl_au*OTAwNTQwODQ4LjE3MjIwMTE4NzIuNzc4MTQ0MDY0LjE3MjYxNjg0MTkuMTcyNjE2ODQxOQ..*_ga*Njc3NDQ2MzkwLjE3MTQwNjgwNjA.*_ga_VS9BE2Z3GY*MTcyNzc5OTc1NC4xNDEuMS4xNzI3ODAwODY1LjQxLjAuMA.." target="_blank" class="tw-text-black">Terms of Service</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -286,7 +299,7 @@
   {%- endif -%}
 
   <div
-    class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    class="footer__content-bottom !tw-pt-0 !tw-border-t-0"
     {% if settings.animations_reveal_on_scroll %}
       data-cascade
     {% endif %}

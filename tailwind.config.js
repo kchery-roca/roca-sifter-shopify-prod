@@ -6,14 +6,22 @@ module.exports = {
       './snippets/*.liquid',
     ],
     prefix: 'tw-',
-    fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-    },
     corePlugins: {
       preflight: false,
     },
     theme: {
-      extend: {},
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+        fontSize: {
+          'xs': '12.5px',
+          'sm': '15px',
+          'base': '16px',
+          'lg': '25px',
+          'xl': '34px'
+        },
+      }
     },
     plugins: [],
   };
