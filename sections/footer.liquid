@@ -52,7 +52,7 @@
       <div class="footer__content-top page-width">
 
         <div class="tw-grid tw-grid-cols-4">
-          <div class="tw-col-span-1">
+          <div class="tw-col-span-4 md:tw-col-span-1">
             <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
               {%- if settings.logo != blank -%}
                 <div class="header__heading-logo-wrapper">
@@ -182,7 +182,7 @@
               </div>
             {%- endif -%}
           </div>
-          <div class="tw-col-span-4 tw-px-auto tw-text-center">
+          <div class="tw-col-span-4 tw-px-auto tw-text-left md:tw-text-center">
             <p>All original content herein is Copyright © TCGplayer, Inc. TCGplayer.com is a trademark of TCGplayer, Inc.</p>
             <p>No portion of this website may be used without expressed written consent. All rights reserved.</p>
             <p>Magic: The Gathering and its respective properties are copyright © Wizards of the Coast.</p>
@@ -317,7 +317,7 @@
           </localization-form>
         {%- endif -%}
       </div>
-      <div class="footer__column footer__column--info">
+      {% comment %} <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
@@ -330,7 +330,38 @@
             </ul>
           </div>
         {%- endif -%}
+      </div> {% endcomment %}
+
+      <div class="tw-flex tw-justify-center tw-w-full">
+        <ul class="tw-flex tw-gap-4 tw-list-none tw-mx-auto">
+          <li>
+            <a href="https://www.facebook.com/tcgplayer/" target="_blank">
+              <img src="{{ 'facebook.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/TCGplayer" target="_blank">
+                <img src="{{ 'x.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/1499102" target="_blank">
+                <img src="{{ 'linkedin.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/channel/UCBqvoHilLfFeal09tYVgwxA" target="_blank">
+                <img src="{{ 'youtube.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/tcgplayer_com/" target="_blank">
+                <img src="{{ 'instagram.svg' | asset_url }}" alt="Facebook" class="tw-w-4 tw-h-4">
+            </a>
+          </li>
+        </ul>
       </div>
+
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">

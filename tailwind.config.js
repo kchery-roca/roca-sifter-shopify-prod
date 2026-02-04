@@ -6,6 +6,9 @@ module.exports = {
       './snippets/*.liquid',
     ],
     prefix: 'tw-',
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+    },
     corePlugins: {
       preflight: false,
     },
