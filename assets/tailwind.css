@@ -20,26 +20,14 @@
 .\!tw-mb-2 {
     margin-bottom: 0.5rem !important
 }
+.\!tw-mt-\[3rem\] {
+    margin-top: 3rem !important
+}
 .tw-mb-2 {
     margin-bottom: 0.5rem
 }
 .tw-mt-5 {
     margin-top: 1.25rem
-}
-.\!tw-mt-2 {
-    margin-top: 0.5rem !important
-}
-.\!tw-mt-4 {
-    margin-top: 1rem !important
-}
-.\!tw-mt-5 {
-    margin-top: 1.25rem !important
-}
-.\!tw-mt-\[2rem\] {
-    margin-top: 2rem !important
-}
-.\!tw-mt-\[3rem\] {
-    margin-top: 3rem !important
 }
 .tw-block {
     display: block
@@ -53,32 +41,14 @@
 .tw-hidden {
     display: none
 }
-.tw-h-4 {
-    height: 1rem
-}
-.tw-h-\[36px\] {
-    height: 36px
-}
 .tw-h-\[24px\] {
     height: 24px
-}
-.tw-h-6 {
-    height: 1.5rem
-}
-.tw-w-4 {
-    width: 1rem
-}
-.tw-w-full {
-    width: 100%
-}
-.tw-w-\[36px\] {
-    width: 36px
 }
 .tw-w-\[24px\] {
     width: 24px
 }
-.tw-w-6 {
-    width: 1.5rem
+.tw-w-full {
+    width: 100%
 }
 .tw-list-none {
     list-style-type: none
@@ -101,18 +71,6 @@
 .tw-gap-4 {
     gap: 1rem
 }
-.tw-gap-\[2rem\] {
-    gap: 2rem
-}
-.tw-gap-3 {
-    gap: 0.75rem
-}
-.tw-gap-\[1re\,\] {
-    gap: 1re,
-}
-.tw-gap-\[1rem\] {
-    gap: 1rem
-}
 .tw-gap-\[1\.5rem\] {
     gap: 1.5rem
 }
@@ -122,40 +80,23 @@
 .\!tw-border-t-0 {
     border-top-width: 0px !important
 }
+.tw-bg-\[\#595959\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(89 89 89 / var(--tw-bg-opacity, 1))
+}
 .tw-bg-\[\#EEEFF0\] {
     --tw-bg-opacity: 1;
     background-color: rgb(238 239 240 / var(--tw-bg-opacity, 1))
 }
-.tw-bg-red-500 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1))
-}
 .tw-bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
-}
-.tw-bg-black {
-    --tw-bg-opacity: 1;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1))
-}
-.tw-bg-\[\#595959\] {
-    --tw-bg-opacity: 1;
-    background-color: rgb(89 89 89 / var(--tw-bg-opacity, 1))
 }
 .\!tw-p-0 {
     padding: 0px !important
 }
 .tw-p-0 {
     padding: 0px
-}
-.tw-p-4 {
-    padding: 1rem
-}
-.tw-p-1 {
-    padding: 0.25rem
-}
-.tw-p-2 {
-    padding: 0.5rem
 }
 .tw-p-3 {
     padding: 0.75rem
@@ -169,20 +110,14 @@
 .tw-text-left {
     text-align: left
 }
+.\!tw-text-\[14px\] {
+    font-size: 14px !important
+}
 .\!tw-text-base {
     font-size: 16px !important
 }
-.\!tw-text-sm {
-    font-size: 15px !important
-}
 .\!tw-text-xs {
     font-size: 12.5px !important
-}
-.\!tw-text-\[16px\] {
-    font-size: 16px !important
-}
-.\!tw-text-\[14px\] {
-    font-size: 14px !important
 }
 .\!tw-tracking-\[0\.14px\] {
     letter-spacing: 0.14px !important
@@ -191,25 +126,13 @@
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity, 1))
 }
-.tw-text-white {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity, 1))
-}
-.\!tw-text-white {
-    --tw-text-opacity: 1 !important;
-    color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important
+.hover\:tw-bg-black:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1))
 }
 .hover\:tw-bg-gray-300:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(209 213 219 / var(--tw-bg-opacity, 1))
-}
-.hover\:tw-bg-\[\#404040\]:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(64 64 64 / var(--tw-bg-opacity, 1))
-}
-.hover\:tw-bg-black:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1))
 }
 @media (min-width: 768px) {
     .md\:tw-col-span-1 {
@@ -221,29 +144,11 @@
     .md\:tw-block {
         display: block
     }
-    .md\:tw-h-\[24px\] {
-        height: 24px
-    }
-    .md\:tw-w-\[24px\] {
-        width: 24px
-    }
     .md\:tw-justify-center {
         justify-content: center
     }
-    .md\:tw-gap-1 {
-        gap: 0.25rem
-    }
     .md\:tw-gap-\[2rem\] {
         gap: 2rem
-    }
-    .md\:tw-gap-2 {
-        gap: 0.5rem
-    }
-    .md\:tw-gap-3 {
-        gap: 0.75rem
-    }
-    .md\:tw-gap-\[1rem\] {
-        gap: 1rem
     }
     .md\:tw-text-center {
         text-align: center
