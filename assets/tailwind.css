@@ -38,20 +38,26 @@
 .tw-grid {
     display: grid
 }
-.tw-hidden {
-    display: none
-}
 .\!tw-hidden {
     display: none !important
 }
+.tw-hidden {
+    display: none
+}
 .tw-h-\[24px\] {
     height: 24px
+}
+.tw-h-6 {
+    height: 1.5rem
 }
 .tw-w-\[24px\] {
     width: 24px
 }
 .tw-w-full {
     width: 100%
+}
+.tw-w-6 {
+    width: 1.5rem
 }
 .tw-list-none {
     list-style-type: none
@@ -104,6 +110,14 @@
 .tw-p-3 {
     padding: 0.75rem
 }
+.\!tw-px-\[15px\] {
+    padding-left: 15px !important;
+    padding-right: 15px !important
+}
+.\!tw-py-\[20px\] {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important
+}
 .\!tw-pb-0 {
     padding-bottom: 0px !important
 }
@@ -122,6 +136,9 @@
 .\!tw-text-xs {
     font-size: 12.5px !important
 }
+.\!tw-text-\[18px\] {
+    font-size: 18px !important
+}
 .\!tw-tracking-\[0\.14px\] {
     letter-spacing: 0.14px !important
 }
@@ -136,6 +153,16 @@
 .hover\:tw-bg-gray-300:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(209 213 219 / var(--tw-bg-opacity, 1))
+}
+@media (min-width: 640px) {
+    .sm\:\!tw-px-\[15px\] {
+        padding-left: 15px !important;
+        padding-right: 15px !important
+    }
+    .sm\:\!tw-py-\[20px\] {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important
+    }
 }
 @media (min-width: 768px) {
     .md\:tw-col-span-1 {
@@ -156,6 +183,12 @@
     .md\:tw-text-center {
         text-align: center
     }
+}
+.\[\&_svg\]\:tw-h-full svg {
+    height: 100%
+}
+.\[\&_svg\]\:tw-w-full svg {
+    width: 100%
 }
 
 /*# sourceMappingURL=tailwind.css.map*/
