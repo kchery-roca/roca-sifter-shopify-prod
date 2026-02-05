@@ -41,6 +41,9 @@
 .tw-hidden {
     display: none
 }
+.\!tw-hidden {
+    display: none !important
+}
 .tw-h-\[24px\] {
     height: 24px
 }
