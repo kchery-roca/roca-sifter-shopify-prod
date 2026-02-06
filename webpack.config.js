@@ -19,7 +19,9 @@ module.exports = (env, argv) => {
 
   const config = {
     mode,
-    entry: './src/tailwind.css',
+    entry:{
+       main: './src/js/main.jsx',
+       tailwind: './src/css/tailwind.css'},
     output: {
       path: path.resolve(__dirname, 'assets'),
     },
@@ -29,7 +31,17 @@ module.exports = (env, argv) => {
           test: /\.css$/,
           use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
         },
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+          },
+        },
       ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx'],
     },
     plugins: [
       new MiniCssExtractPlugin({
