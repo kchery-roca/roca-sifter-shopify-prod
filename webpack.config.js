@@ -24,6 +24,7 @@ module.exports = (env, argv) => {
        tailwind: './src/css/tailwind.css'},
     output: {
       path: path.resolve(__dirname, 'assets'),
+      filename: '[name].js',
     },
     module: {
       rules: [
