@@ -475,7 +475,11 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
 
-              <div id="product-form-buttons-holder-react"></div>
+              <div id="product-form-buttons-holder-react"
+                data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                data-subscription-variant-id="47730066948344"
+                data-selling-plan-id="5643829496"
+                ></div>
                 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}

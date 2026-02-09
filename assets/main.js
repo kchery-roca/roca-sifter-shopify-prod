@@ -30357,8 +30357,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
+  var container = document.getElementById('product-form-buttons-holder-react');
+  var variantId = container.dataset.variantId;
+  var subscriptionVariantId = container.dataset.subscriptionVariantId;
+  var sellingPlanId = container.dataset.sellingPlanId;
+  var generateSerialNumber = function generateSerialNumber() {
+    var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var twoLetters = letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];
+    var fiveNumbers = String(Math.floor(10000 + Math.random() * 90000));
+    return twoLetters + '-' + fiveNumbers;
+  };
   var addToCart = function addToCart() {
-    alert('Add to Cart');
+    var webSerialNumber = generateSerialNumber();
+    var items = [{
+      id: variantId,
+      quantity: 1,
+      properties: {
+        webSerialNumber: webSerialNumber
+      }
+    }, {
+      id: subscriptionVariantId,
+      quantity: 1,
+      selling_plan: sellingPlanId,
+      properties: {
+        webSerialNumber: webSerialNumber
+      }
+    }];
+    fetch("".concat(window.routes.cart_add_url, ".js"), {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        items: items
+      })
+    }).then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      if (data.status) console.error(data.errors);
+    })["catch"](console.error);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Checkbox 1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Checkbox 2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     onClick: addToCart
