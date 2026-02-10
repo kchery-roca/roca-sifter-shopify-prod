@@ -1,6 +1,10 @@
 import React from 'react';
+import { useState } from 'react';
 
 const CustomAddToCartButtonSifter = () => {
+
+  const [isTCGPlayer, setIsTCGPlayer] = useState(false);
+  const [acceptTermsAndConditions, setAcceptTermsAndConditions] = useState(false);
 
   const container = document.getElementById('product-form-buttons-holder-react');
   const variantId = container?.dataset?.variantId;
@@ -78,9 +82,11 @@ const CustomAddToCartButtonSifter = () => {
   return (
     <div>
       <div>
+        <input type="checkbox" checked={isTCGPlayer} onChange={() => setIsTCGPlayer(!isTCGPlayer)} />
         Checkbox 1
       </div>
       <div>
+      <input type="checkbox" checked={acceptTermsAndConditions} onChange={() => setAcceptTermsAndConditions(!acceptTermsAndConditions)} />
         Checkbox 2
       </div>
       <button onClick={addToCart}>Add to Cart</button>
