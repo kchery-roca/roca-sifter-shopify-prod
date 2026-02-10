@@ -135,7 +135,7 @@
                 {%- endif -%}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-                  {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+                  {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large tw-hidden' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                     {{ form | payment_terms }}
                   {%- endform -%}
@@ -230,7 +230,7 @@
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
-                  class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                  class="product-form__input product-form__quantity  tw-hidden {% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
@@ -485,6 +485,7 @@
                   product_form_id: product_form_id,
                   section_id: section.id,
                   show_pickup_availability: true
+                  class: "tw-hidden"
                 -%}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
@@ -686,30 +687,30 @@
             ></div>
 
           
-            {%- if product.metafields.custom.what_s_included_2 != blank -%}
+            {%- if product.metafields.custom.what_s_included_3 != blank -%}
               <div class="product__metafield">
-                <h1>What’s Included</h1>
-                {{ product.metafields.custom.what_s_included_2 | metafield_tag }}
+                <p class="tw-font-[600]">What’s Included</p>
+                {{ product.metafields.custom.what_s_included_3 | metafield_tag }}
               </div>
             {%- endif -%}
 
             {%- if product.metafields.custom.performance_capacity != blank -%}
               <div class="product__metafield">
-                <h1>Performance & Capacity</h1>
+                <p class="tw-font-[600]">Performance & Capacity</p>
                 {{ product.metafields.custom.performance_capacity | metafield_tag }}
               </div>
             {%- endif -%}
 
             {%- if product.metafields.custom.specifications != blank -%}
               <div class="product__metafield">
-                <h1>Specifications</h1>
+                <p class="tw-font-[600]">Specifications</p>
                 {{ product.metafields.custom.specifications | metafield_tag }}
               </div>
             {%- endif -%}
 
             {%- if product.metafields.custom.to_operate_a_roca_sifter_you_must_have != blank -%}
               <div class="product__metafield">
-                <h1>To Operate a Roca Sifter You Must Have</h1>
+                <p class="tw-font-[600]">To Operate a Roca Sifter You Must Have</p>
                 {{ product.metafields.custom.to_operate_a_roca_sifter_you_must_have | metafield_tag }}
               </div>
             {%- endif -%}
