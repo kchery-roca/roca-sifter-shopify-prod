@@ -243,6 +243,9 @@
     .md\:tw-gap-\[2rem\] {
         gap: 2rem
     }
+    .md\:tw-p-0 {
+        padding: 0px
+    }
     .md\:tw-text-center {
         text-align: center
     }
