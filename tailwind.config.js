@@ -4,6 +4,7 @@ module.exports = {
       './templates/**/*.liquid',
       './sections/*.liquid',
       './snippets/*.liquid',
+      './src/**/*.jsx',
     ],
     prefix: 'tw-',
     corePlugins: {

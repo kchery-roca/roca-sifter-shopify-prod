@@ -10,6 +10,7 @@ const CustomAddToCartButtonSifter = () => {
   const variantId = container?.dataset?.variantId;
   const subscriptionVariantId = container?.dataset?.subscriptionVariantId;
   const sellingPlanId = container?.dataset?.sellingPlanId;
+  const productPrice = container?.dataset?.productPrice;
 
   const generateSerialNumber = () => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -81,15 +82,19 @@ const CustomAddToCartButtonSifter = () => {
 
   return (
     <div>
-      <div>
+      <div className="tw-flex tw-items-center tw-gap-2">
         <input type="checkbox" checked={isTCGPlayer} onChange={() => setIsTCGPlayer(!isTCGPlayer)} />
-        Checkbox 1
+        <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">I acknowledge that I am required to have a <a href="https://www.tcgplayer.com/become-a-seller" target="_blank" className="tw-text-blue-500">TCGplayer seller account</a>  in order to operate a Roca Sifter </label>
       </div>
-      <div>
+      <div className="tw-flex tw-items-center tw-gap-2">
       <input type="checkbox" checked={acceptTermsAndConditions} onChange={() => setAcceptTermsAndConditions(!acceptTermsAndConditions)} />
-        Checkbox 2
+      <label htmlFor="acceptTermsAndConditions" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">By clicking order I agree to the <a href="/pages/terms-and-conditions" target="_blank" className="tw-text-blue-500">Terms and Conditions</a> and acknowledge the <a href="/pages/privacy-policy" target="_blank" className="tw-text-blue-500">Privacy Policy</a></label>
       </div>
-      <button onClick={addToCart}>Add to Cart</button>
+      <p>Available for purchase within U.S only</p>
+      <div className="tw-flex tw-gap-4 tw-mt-2">
+      <button type="button" onClick={addToCart} disabled={!isTCGPlayer || !acceptTermsAndConditions} className="tw-bg-[#0835DB] tw-px-[16px] tw-py-[8px] tw-text-white tw-px-4 tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none">Order</button>
+      <span className="tw-text-lg tw-text-black tw-font-bold">{productPrice}</span>
+      </div>
     </div>
   );
 };

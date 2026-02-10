@@ -73,7 +73,7 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width">
+  <div class="page-width tw-p-0">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -475,11 +475,6 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
 
-              <div id="product-form-buttons-holder-react"
-                data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                data-subscription-variant-id="47730066948344"
-                data-selling-plan-id="5643829496"
-                ></div>
                 
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
@@ -682,12 +677,50 @@
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
           {%- endfor -%}
+
+          <div id="product-form-buttons-holder-react"
+            data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+            data-subscription-variant-id="47730066948344"
+            data-selling-plan-id="5643829496"
+            data-product-price="{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}"
+            ></div>
+
+          
+            {%- if product.metafields.custom.what_s_included_2 != blank -%}
+              <div class="product__metafield">
+                <h1>What’s Included</h1>
+                {{ product.metafields.custom.what_s_included_2 | metafield_tag }}
+              </div>
+            {%- endif -%}
+
+            {%- if product.metafields.custom.performance_capacity != blank -%}
+              <div class="product__metafield">
+                <h1>Performance & Capacity</h1>
+                {{ product.metafields.custom.performance_capacity | metafield_tag }}
+              </div>
+            {%- endif -%}
+
+            {%- if product.metafields.custom.specifications != blank -%}
+              <div class="product__metafield">
+                <h1>Specifications</h1>
+                {{ product.metafields.custom.specifications | metafield_tag }}
+              </div>
+            {%- endif -%}
+
+            {%- if product.metafields.custom.to_operate_a_roca_sifter_you_must_have != blank -%}
+              <div class="product__metafield">
+                <h1>To Operate a Roca Sifter You Must Have</h1>
+                {{ product.metafields.custom.to_operate_a_roca_sifter_you_must_have | metafield_tag }}
+              </div>
+            {%- endif -%}
+
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
             {{ 'products.product.view_full_details' | t }}
             {{- 'icon-arrow.svg' | inline_asset_content -}}
           </a>
         </section>
       </div>
+
     </div>
 
     {% render 'product-media-modal', variant_images: variant_images %}

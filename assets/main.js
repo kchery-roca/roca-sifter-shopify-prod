@@ -30368,7 +30368,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
-  var _container$dataset, _container$dataset2, _container$dataset3;
+  var _container$dataset, _container$dataset2, _container$dataset3, _container$dataset4;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     isTCGPlayer = _useState2[0],
@@ -30381,6 +30381,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   var variantId = container === null || container === void 0 || (_container$dataset = container.dataset) === null || _container$dataset === void 0 ? void 0 : _container$dataset.variantId;
   var subscriptionVariantId = container === null || container === void 0 || (_container$dataset2 = container.dataset) === null || _container$dataset2 === void 0 ? void 0 : _container$dataset2.subscriptionVariantId;
   var sellingPlanId = container === null || container === void 0 || (_container$dataset3 = container.dataset) === null || _container$dataset3 === void 0 ? void 0 : _container$dataset3.sellingPlanId;
+  var productPrice = container === null || container === void 0 || (_container$dataset4 = container.dataset) === null || _container$dataset4 === void 0 ? void 0 : _container$dataset4.productPrice;
   var generateSerialNumber = function generateSerialNumber() {
     var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var twoLetters = letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];
@@ -30467,21 +30468,50 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
       return _ref.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-flex tw-items-center tw-gap-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "checkbox",
     checked: isTCGPlayer,
     onChange: function onChange() {
       return setIsTCGPlayer(!isTCGPlayer);
     }
-  }), "Checkbox 1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "isTCGPlayer",
+    className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
+  }, "I acknowledge that I am required to have a ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "https://www.tcgplayer.com/become-a-seller",
+    target: "_blank",
+    className: "tw-text-blue-500"
+  }, "TCGplayer seller account"), "  in order to operate a Roca Sifter\xA0")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-flex tw-items-center tw-gap-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "checkbox",
     checked: acceptTermsAndConditions,
     onChange: function onChange() {
       return setAcceptTermsAndConditions(!acceptTermsAndConditions);
     }
-  }), "Checkbox 2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: addToCart
-  }, "Add to Cart"));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    htmlFor: "acceptTermsAndConditions",
+    className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
+  }, "By clicking order I agree to the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "/pages/terms-and-conditions",
+    target: "_blank",
+    className: "tw-text-blue-500"
+  }, "Terms and Conditions"), " and acknowledge the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "/pages/privacy-policy",
+    target: "_blank",
+    className: "tw-text-blue-500"
+  }, "Privacy Policy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Available for purchase within U.S only"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-flex tw-gap-4 tw-mt-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    type: "button",
+    onClick: addToCart,
+    disabled: !isTCGPlayer || !acceptTermsAndConditions,
+    className: "tw-bg-[#0835DB] tw-px-[16px] tw-py-[8px] tw-text-white tw-px-4 tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none"
+  }, "Order"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "tw-text-lg tw-text-black tw-font-bold"
+  }, productPrice)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomAddToCartButtonSifter);
 
