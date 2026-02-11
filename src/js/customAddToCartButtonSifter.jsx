@@ -33,7 +33,6 @@ const CustomAddToCartButtonSifter = () => {
     formData.append('items[1][properties][Web-Serial-Number]', webSerialNumber);
     
     try {
-      // Step 1: Add to cart
       const response = await fetch(window.routes.cart_add_url, {
         method: 'POST',
         headers: { 
@@ -50,16 +49,17 @@ const CustomAddToCartButtonSifter = () => {
         return;
       }
       
-      // Step 2: Fetch cart sections separately
-      const sectionsResponse = await fetch(`${window.routes.cart_url}?section_id=cart-drawer`);
-      const sectionsHTML = await sectionsResponse.text();
+      // Fetch both cart sections
+      const sectionsResponse = await fetch(`${window.routes.cart_url}?sections=cart-drawer,cart-icon-bubble`);
+      const sectionsData = await sectionsResponse.json();
       
-      // Step 3: Render and open drawer
       const cartDrawer = document.querySelector('cart-drawer');
       if (cartDrawer) {
         const parser = new DOMParser();
-        const doc = parser.parseFromString(sectionsHTML, 'text/html');
-        const newDrawerInner = doc.querySelector('.drawer__inner');
+        
+        // Update drawer content
+        const drawerDoc = parser.parseFromString(sectionsData['cart-drawer'], 'text/html');
+        const newDrawerInner = drawerDoc.querySelector('.drawer__inner');
         
         if (newDrawerInner) {
           const currentDrawerInner = cartDrawer.querySelector('.drawer__inner');
@@ -68,7 +68,15 @@ const CustomAddToCartButtonSifter = () => {
           }
         }
         
-        // Remove empty class if present
+        // Update cart icon bubble - get content from section wrapper
+        const bubbleDoc = parser.parseFromString(sectionsData['cart-icon-bubble'], 'text/html');
+        const bubbleSection = bubbleDoc.querySelector('.shopify-section');
+        const currentBubble = document.querySelector('#cart-icon-bubble');
+        
+        if (bubbleSection && currentBubble) {
+          currentBubble.innerHTML = bubbleSection.innerHTML;
+        }
+        
         cartDrawer.classList.remove('is-empty');
         
         if (typeof cartDrawer.open === 'function') {
@@ -84,7 +92,7 @@ const CustomAddToCartButtonSifter = () => {
     <div>
       <div className="tw-flex tw-items-center tw-gap-2">
         <input type="checkbox" checked={isTCGPlayer} onChange={() => setIsTCGPlayer(!isTCGPlayer)} />
-        <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">I acknowledge that I am required to have a <a href="https://www.tcgplayer.com/become-a-seller" target="_blank" className="tw-text-blue-500">TCGplayer seller account</a>  in order to operate a Roca Sifter </label>
+        <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">I acknowledge that I am required to have a <a href="https://www.tcgplayer.com/become-a-seller" target="_blank" className="tw-text-blue-500">TCGplayer seller account</a>  in order to operate a Roca Sifter </label>
       </div>
       <div className="tw-flex tw-items-center tw-gap-2">
       <input type="checkbox" checked={acceptTermsAndConditions} onChange={() => setAcceptTermsAndConditions(!acceptTermsAndConditions)} />

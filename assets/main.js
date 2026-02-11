@@ -30390,7 +30390,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   };
   var addToCart = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var webSerialNumber, formData, response, data, sectionsResponse, sectionsHTML, cartDrawer, parser, doc, newDrawerInner, currentDrawerInner, _t;
+      var webSerialNumber, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -30427,19 +30427,18 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
             return _context.a(2);
           case 4:
             _context.n = 5;
-            return fetch("".concat(window.routes.cart_url, "?section_id=cart-drawer"));
+            return fetch("".concat(window.routes.cart_url, "?sections=cart-drawer,cart-icon-bubble"));
           case 5:
             sectionsResponse = _context.v;
             _context.n = 6;
-            return sectionsResponse.text();
+            return sectionsResponse.json();
           case 6:
-            sectionsHTML = _context.v;
-            // Step 3: Render and open drawer
+            sectionsData = _context.v;
             cartDrawer = document.querySelector('cart-drawer');
             if (cartDrawer) {
-              parser = new DOMParser();
-              doc = parser.parseFromString(sectionsHTML, 'text/html');
-              newDrawerInner = doc.querySelector('.drawer__inner');
+              parser = new DOMParser(); // Update drawer content
+              drawerDoc = parser.parseFromString(sectionsData['cart-drawer'], 'text/html');
+              newDrawerInner = drawerDoc.querySelector('.drawer__inner');
               if (newDrawerInner) {
                 currentDrawerInner = cartDrawer.querySelector('.drawer__inner');
                 if (currentDrawerInner) {
@@ -30447,7 +30446,13 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
                 }
               }
 
-              // Remove empty class if present
+              // Update cart icon bubble - get content from section wrapper
+              bubbleDoc = parser.parseFromString(sectionsData['cart-icon-bubble'], 'text/html');
+              bubbleSection = bubbleDoc.querySelector('.shopify-section');
+              currentBubble = document.querySelector('#cart-icon-bubble');
+              if (bubbleSection && currentBubble) {
+                currentBubble.innerHTML = bubbleSection.innerHTML;
+              }
               cartDrawer.classList.remove('is-empty');
               if (typeof cartDrawer.open === 'function') {
                 cartDrawer.open();
@@ -30483,7 +30488,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     href: "https://www.tcgplayer.com/become-a-seller",
     target: "_blank",
     className: "tw-text-blue-500"
-  }, "TCGplayer seller account"), "  in order to operate a Roca Sifter\xA0")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "TCGplayer seller account"), "  in order to operate a Roca Sifter ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "checkbox",
