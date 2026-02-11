@@ -379,4 +379,11 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   </body>
+
+  {%  if template == 'index' or product.handle == 'service-contract' %}
+    <script>
+      window.location.href = '/products/roca-card-sifter'
+    </script>
+  {% endif %}
+
 </html>
