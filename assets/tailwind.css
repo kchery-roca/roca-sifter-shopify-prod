@@ -17,6 +17,10 @@
     margin-left: auto;
     margin-right: auto
 }
+.tw-my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px
+}
 .\!tw-mb-2 {
     margin-bottom: 0.5rem !important
 }
@@ -31,6 +35,9 @@
 }
 .tw-mt-5 {
     margin-top: 1.25rem
+}
+.tw-mt-\[4rem\] {
+    margin-top: 4rem
 }
 .tw-block {
     display: block
@@ -107,9 +114,20 @@
     --tw-bg-opacity: 1;
     background-color: rgb(238 239 240 / var(--tw-bg-opacity, 1))
 }
+.tw-bg-\[gainsboro\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 220 220 / var(--tw-bg-opacity, 1))
+}
 .tw-bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
+}
+.tw-bg-\[\#\#F7FAFF\] {
+    background-color: ##F7FAFF
+}
+.tw-bg-\[\#F7FAFF\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(247 250 255 / var(--tw-bg-opacity, 1))
 }
 .\!tw-p-0 {
     padding: 0px !important
@@ -136,6 +154,10 @@
     padding-top: 8px;
     padding-bottom: 8px
 }
+.tw-py-\[8rem\] {
+    padding-top: 8rem;
+    padding-bottom: 8rem
+}
 .\!tw-pb-0 {
     padding-bottom: 0px !important
 }
@@ -160,6 +182,18 @@
 .tw-text-lg {
     font-size: 25px
 }
+.tw-text-\[22px\] {
+    font-size: 22px
+}
+.tw-text-\[34px\] {
+    font-size: 34px
+}
+.tw-text-\[16px\] {
+    font-size: 16px
+}
+.tw-text-\[15px\] {
+    font-size: 15px
+}
 .tw-font-\[400\] {
     font-weight: 400
 }
@@ -169,6 +203,18 @@
 .tw-font-bold {
     font-weight: 700
 }
+.tw-leading-\[155\%\] {
+    line-height: 155%
+}
+.tw-leading-\[135\%\] {
+    line-height: 135%
+}
+.tw-leading-\[125\%\] {
+    line-height: 125%
+}
+.tw-leading-\[150\%\] {
+    line-height: 150%
+}
 .\!tw-tracking-\[0\.14px\] {
     letter-spacing: 0.14px !important
 }
@@ -177,6 +223,18 @@
 }
 .tw-tracking-\[150\%\] {
     letter-spacing: 150%
+}
+.tw-tracking-\[0\.5px\] {
+    letter-spacing: 0.5px
+}
+.tw-tracking-\[0\.44px\] {
+    letter-spacing: 0.44px
+}
+.tw-tracking-\[-0\.34px\] {
+    letter-spacing: -0.34px
+}
+.tw-tracking-\[-0\.15px\] {
+    letter-spacing: -0.15px
 }
 .tw-text-black {
     --tw-text-opacity: 1;
@@ -189,6 +247,14 @@
 .tw-text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+}
+.tw-text-\[\#000\] {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1))
+}
+.tw-text-\[\#767676\] {
+    --tw-text-opacity: 1;
+    color: rgb(118 118 118 / var(--tw-text-opacity, 1))
 }
 .hover\:tw-bg-black:hover {
     --tw-bg-opacity: 1;

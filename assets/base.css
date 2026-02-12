@@ -2564,6 +2564,12 @@ input[type='checkbox'] {
   height: 24px;
 }
 
+#testimonials-svg-container > svg {
+  width: 86px;
+  height: 65px;
+  aspect-ratio: 86/65;
+}
+
 .header__icon::after {
   content: none;
 }

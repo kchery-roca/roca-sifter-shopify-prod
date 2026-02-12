@@ -91,22 +91,21 @@
                 {% render block %}
               {%- when 'text' -%}
                 <p
-                  class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  class="product__text tw-hidden inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
-                  <a href="{{ product.url }}" class="product__title">
-                    <h2 class="h1">
-                      {{ product.title | escape }}
-                    </h2>
-                  </a>
+                <div class="product__title " {{ block.shopify_attributes }}>
+                  <h1 class="tw-text-[#000] tw-text-[34px] tw-leading-[125%] tw-tracking-[-0.34px] tw-font-bold">{{ product.title | escape }}</h1>
+                  <p class="tw-text-[#767676] tw-text-[15px] tw-leading-[125%] tw-tracking-[-0.15px]">
+                    Ships September 2026
+                  </p>
                 </div>
+
               {%- when 'price' -%}
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} class="tw-hidden">
                   {%- render 'price',
                     product: product,
                     use_variant: true,

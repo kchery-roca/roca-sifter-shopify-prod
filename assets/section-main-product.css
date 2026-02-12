@@ -219,6 +219,9 @@ product-info {
 
 .product__info-container > * + * {
   margin: 1.5rem 0;
+  font-size: 16px;
+  line-height: 157%;
+  letter-spacing: -0.16px;
 }
 
 .product__info-container iframe {

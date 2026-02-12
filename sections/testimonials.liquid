@@ -1,14 +1,21 @@
-<div class="w-full bg-[gainsboro] py-[10rem]">
-  <div class="page-width">
-    {{ 'icon-quote.svg' | inline_asset_content }}
-    <p>
+<div class="tw-w-full tw-bg-[#F7FAFF] tw-mt-[4rem]">
+  <div class="page-width tw-py-[8rem]">
+    <div id="testimonials-svg-container">
+      {{ 'icon-quote.svg' | inline_asset_content }}
+    </div>
+    <p class="tw-text-lg tw-font-bold tw-leading-[155%] tw-tracking-[0.5px] tw-text-[#000]">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget est interdum, tempor velit a, 
         malesuada lectus. Etiam sed magna porttitor, fermentum nulla et, accumsan ipsum. Fusce at maximus diam. 
         Sed rutrum lacus non mauris luctus consectetur. Duis rutrum tellus at enim faucibus ultricies a ut justo. 
     </p>
+
+    <div style="transform: rotate(180deg);" id="testimonials-svg-container">
+        {{ 'icon-quote.svg' | inline_asset_content }}
+    </div>
+
     <div>
-        <p>Kris Chery</p>
-        <p>2150 Design</p>
+        <p class="tw-my-0 tw-font-bold tw-text-[22px] tw-text-[#000] tw-leading-[135%] tw-tracking-[0.44px]">Kris Chery</p>
+        <p class="tw-my-0 tw-text-[22px] tw-text-[#000] tw-leading-[135%] tw-tracking-[0.44px]">2150 Design</p>
     </div>
   </div>
 </div>
@@ -17,9 +24,36 @@
 {
   "name": "Testimonials",
   "settings": [],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "testimonial_text",
+          "label": "Testimonial Text"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name"
+        },
+        {
+          "type": "text",
+          "id": "author_company",
+          "label": "Company"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-     "name": "Testimonials"
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
     }
   ]
 }
