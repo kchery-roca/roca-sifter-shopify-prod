@@ -30381,6 +30381,22 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     _useState6 = _slicedToArray(_useState5, 2),
     isLoading = _useState6[0],
     setIsLoading = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState8 = _slicedToArray(_useState7, 2),
+    quantity = _useState8[0],
+    setQuantity = _useState8[1];
+
+  // Sync React state with browser-restored checkbox state on mount
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var tcgCheckbox = document.querySelector('input[type="checkbox"]');
+    var termsCheckbox = document.querySelectorAll('input[type="checkbox"]')[1];
+    if (tcgCheckbox !== null && tcgCheckbox !== void 0 && tcgCheckbox.checked) {
+      setIsTCGPlayer(true);
+    }
+    if (termsCheckbox !== null && termsCheckbox !== void 0 && termsCheckbox.checked) {
+      setAcceptTermsAndConditions(true);
+    }
+  }, []);
   var container = document.getElementById('product-form-buttons-holder-react');
   var variantId = container === null || container === void 0 || (_container$dataset = container.dataset) === null || _container$dataset === void 0 ? void 0 : _container$dataset.variantId;
   var subscriptionVariantId = container === null || container === void 0 || (_container$dataset2 = container.dataset) === null || _container$dataset2 === void 0 ? void 0 : _container$dataset2.subscriptionVariantId;
@@ -30392,9 +30408,25 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     var fiveNumbers = String(Math.floor(10000 + Math.random() * 90000));
     return twoLetters + '-' + fiveNumbers;
   };
+  var handleQuantityChange = function handleQuantityChange(e) {
+    var value = parseInt(e.target.value, 10);
+    if (!isNaN(value) && value >= 1) {
+      setQuantity(value);
+    }
+  };
+  var incrementQuantity = function incrementQuantity() {
+    setQuantity(function (prev) {
+      return prev + 1;
+    });
+  };
+  var decrementQuantity = function decrementQuantity() {
+    setQuantity(function (prev) {
+      return Math.max(1, prev - 1);
+    });
+  };
   var addToCart = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var missingItems, webSerialNumber, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
+      var missingItems, serialNumbers, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -30416,15 +30448,28 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
           case 2:
             // Start loading
             setIsLoading(true);
-            webSerialNumber = generateSerialNumber();
-            formData = new FormData();
-            formData.append('items[0][id]', variantId);
-            formData.append('items[0][quantity]', '1');
-            formData.append('items[0][properties][Web-Serial-Number]', webSerialNumber);
-            formData.append('items[1][id]', subscriptionVariantId);
-            formData.append('items[1][quantity]', '1');
-            formData.append('items[1][selling_plan]', sellingPlanId);
-            formData.append('items[1][properties][Web-Serial-Number]', webSerialNumber);
+
+            // Generate unique serial numbers for each sifter bundle
+            serialNumbers = Array.from({
+              length: quantity
+            }, function () {
+              return generateSerialNumber();
+            });
+            formData = new FormData(); // Add each sifter bundle (regular product + subscription) with unique serial
+            serialNumbers.forEach(function (webSerialNumber, index) {
+              var itemIndex = index * 2;
+
+              // Regular product
+              formData.append("items[".concat(itemIndex, "][id]"), variantId);
+              formData.append("items[".concat(itemIndex, "][quantity]"), '1');
+              formData.append("items[".concat(itemIndex, "][properties][Web-Serial-Number]"), webSerialNumber);
+
+              // Subscription with same serial
+              formData.append("items[".concat(itemIndex + 1, "][id]"), subscriptionVariantId);
+              formData.append("items[".concat(itemIndex + 1, "][quantity]"), '1');
+              formData.append("items[".concat(itemIndex + 1, "][selling_plan]"), sellingPlanId);
+              formData.append("items[".concat(itemIndex + 1, "][properties][Web-Serial-Number]"), webSerialNumber);
+            });
             _context.p = 3;
             _context.n = 4;
             return fetch(window.routes.cart_add_url, {
@@ -30535,6 +30580,29 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     target: "_blank",
     className: "tw-text-blue-500"
   }, "Privacy Policy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Available for purchase within U.S only"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-flex tw-items-center tw-gap-3 tw-mt-4 tw-mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    className: "tw-text-base tw-font-[600]"
+  }, "Quantity:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-flex tw-items-center tw-border tw-border-gray-300 tw-rounded-[8px] tw-overflow-hidden"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    type: "button",
+    onClick: decrementQuantity,
+    disabled: quantity <= 1 || isLoading,
+    className: "tw-px-3 tw-py-2 tw-bg-gray-100 hover:tw-bg-gray-200 tw-border-r tw-border-gray-300 tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors"
+  }, "-"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "number",
+    min: "1",
+    value: quantity,
+    onChange: handleQuantityChange,
+    disabled: isLoading,
+    className: "tw-w-16 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    type: "button",
+    onClick: incrementQuantity,
+    disabled: isLoading,
+    className: "tw-px-3 tw-py-2 tw-bg-gray-100 hover:tw-bg-gray-200 tw-border-l tw-border-gray-300 tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors"
+  }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-gap-4 tw-mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
