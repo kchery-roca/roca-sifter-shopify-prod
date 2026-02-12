@@ -30390,10 +30390,20 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   };
   var addToCart = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var webSerialNumber, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
+      var missingItems, webSerialNumber, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
+            if (!(!isTCGPlayer || !acceptTermsAndConditions)) {
+              _context.n = 1;
+              break;
+            }
+            missingItems = [];
+            if (!isTCGPlayer) missingItems.push('acknowledge TCGplayer seller account requirement');
+            if (!acceptTermsAndConditions) missingItems.push('agree to Terms and Conditions');
+            alert("Please ".concat(missingItems.join(' and '), " by checking the boxes above."));
+            return _context.a(2);
+          case 1:
             webSerialNumber = generateSerialNumber();
             formData = new FormData();
             formData.append('items[0][id]', variantId);
@@ -30403,8 +30413,8 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
             formData.append('items[1][quantity]', '1');
             formData.append('items[1][selling_plan]', sellingPlanId);
             formData.append('items[1][properties][Web-Serial-Number]', webSerialNumber);
-            _context.p = 1;
-            _context.n = 2;
+            _context.p = 2;
+            _context.n = 3;
             return fetch(window.routes.cart_add_url, {
               method: 'POST',
               headers: {
@@ -30413,26 +30423,26 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
               },
               body: formData
             });
-          case 2:
-            response = _context.v;
-            _context.n = 3;
-            return response.json();
           case 3:
+            response = _context.v;
+            _context.n = 4;
+            return response.json();
+          case 4:
             data = _context.v;
             if (!data.status) {
-              _context.n = 4;
+              _context.n = 5;
               break;
             }
             console.error(data.description);
             return _context.a(2);
-          case 4:
-            _context.n = 5;
-            return fetch("".concat(window.routes.cart_url, "?sections=cart-drawer,cart-icon-bubble"));
           case 5:
-            sectionsResponse = _context.v;
             _context.n = 6;
-            return sectionsResponse.json();
+            return fetch("".concat(window.routes.cart_url, "?sections=cart-drawer,cart-icon-bubble"));
           case 6:
+            sectionsResponse = _context.v;
+            _context.n = 7;
+            return sectionsResponse.json();
+          case 7:
             sectionsData = _context.v;
             cartDrawer = document.querySelector('cart-drawer');
             if (cartDrawer) {
@@ -30458,16 +30468,16 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
                 cartDrawer.open();
               }
             }
-            _context.n = 8;
+            _context.n = 9;
             break;
-          case 7:
-            _context.p = 7;
+          case 8:
+            _context.p = 8;
             _t = _context.v;
             console.error('Add to cart error:', _t);
-          case 8:
+          case 9:
             return _context.a(2);
         }
-      }, _callee, null, [[1, 7]]);
+      }, _callee, null, [[2, 8]]);
     }));
     return function addToCart() {
       return _ref.apply(this, arguments);
@@ -30513,7 +30523,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     type: "button",
     onClick: addToCart,
     disabled: !isTCGPlayer || !acceptTermsAndConditions,
-    className: "tw-bg-[#0835DB] tw-px-[16px] tw-py-[8px] tw-text-white tw-px-4 tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none"
+    className: "tw-px-[16px] tw-py-[8px] tw-text-white disabled:tw-text-black tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none ".concat(!isTCGPlayer || !acceptTermsAndConditions ? 'tw-bg-gray-400 tw-cursor-not-allowed' : 'tw-bg-[#0835DB] tw-cursor-pointer')
   }, "Order"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "tw-text-lg tw-text-black tw-font-bold"
   }, productPrice)));

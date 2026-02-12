@@ -20,6 +20,16 @@ const CustomAddToCartButtonSifter = () => {
   };
 
   const addToCart = async () => {
+    // Check if both checkboxes are checked
+    if (!isTCGPlayer || !acceptTermsAndConditions) {
+      const missingItems = [];
+      if (!isTCGPlayer) missingItems.push('acknowledge TCGplayer seller account requirement');
+      if (!acceptTermsAndConditions) missingItems.push('agree to Terms and Conditions');
+      
+      alert(`Please ${missingItems.join(' and ')} by checking the boxes above.`);
+      return;
+    }
+
     const webSerialNumber = generateSerialNumber();
     const formData = new FormData();
     
@@ -100,7 +110,18 @@ const CustomAddToCartButtonSifter = () => {
       </div>
       <p>Available for purchase within U.S only</p>
       <div className="tw-flex tw-gap-4 tw-mt-2">
-      <button type="button" onClick={addToCart} disabled={!isTCGPlayer || !acceptTermsAndConditions} className="tw-bg-[#0835DB] tw-px-[16px] tw-py-[8px] tw-text-white tw-px-4 tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none">Order</button>
+      <button 
+       type="button" 
+       onClick={addToCart} 
+       disabled={!isTCGPlayer || !acceptTermsAndConditions} 
+       className={`tw-px-[16px] tw-py-[8px] tw-text-white disabled:tw-text-black tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none ${
+         !isTCGPlayer || !acceptTermsAndConditions 
+           ? 'tw-bg-gray-400 tw-cursor-not-allowed' 
+           : 'tw-bg-[#0835DB] tw-cursor-pointer'
+       }`}
+      >
+        Order
+      </button>
       <span className="tw-text-lg tw-text-black tw-font-bold">{productPrice}</span>
       </div>
     </div>
