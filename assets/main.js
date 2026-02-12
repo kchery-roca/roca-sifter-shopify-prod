@@ -30377,6 +30377,10 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     _useState4 = _slicedToArray(_useState3, 2),
     acceptTermsAndConditions = _useState4[0],
     setAcceptTermsAndConditions = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    isLoading = _useState6[0],
+    setIsLoading = _useState6[1];
   var container = document.getElementById('product-form-buttons-holder-react');
   var variantId = container === null || container === void 0 || (_container$dataset = container.dataset) === null || _container$dataset === void 0 ? void 0 : _container$dataset.variantId;
   var subscriptionVariantId = container === null || container === void 0 || (_container$dataset2 = container.dataset) === null || _container$dataset2 === void 0 ? void 0 : _container$dataset2.subscriptionVariantId;
@@ -30394,8 +30398,14 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
-            if (!(!isTCGPlayer || !acceptTermsAndConditions)) {
+            if (!isLoading) {
               _context.n = 1;
+              break;
+            }
+            return _context.a(2);
+          case 1:
+            if (!(!isTCGPlayer || !acceptTermsAndConditions)) {
+              _context.n = 2;
               break;
             }
             missingItems = [];
@@ -30403,7 +30413,9 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
             if (!acceptTermsAndConditions) missingItems.push('agree to Terms and Conditions');
             alert("Please ".concat(missingItems.join(' and '), " by checking the boxes above."));
             return _context.a(2);
-          case 1:
+          case 2:
+            // Start loading
+            setIsLoading(true);
             webSerialNumber = generateSerialNumber();
             formData = new FormData();
             formData.append('items[0][id]', variantId);
@@ -30413,8 +30425,8 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
             formData.append('items[1][quantity]', '1');
             formData.append('items[1][selling_plan]', sellingPlanId);
             formData.append('items[1][properties][Web-Serial-Number]', webSerialNumber);
-            _context.p = 2;
-            _context.n = 3;
+            _context.p = 3;
+            _context.n = 4;
             return fetch(window.routes.cart_add_url, {
               method: 'POST',
               headers: {
@@ -30423,26 +30435,27 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
               },
               body: formData
             });
-          case 3:
-            response = _context.v;
-            _context.n = 4;
-            return response.json();
           case 4:
+            response = _context.v;
+            _context.n = 5;
+            return response.json();
+          case 5:
             data = _context.v;
             if (!data.status) {
-              _context.n = 5;
+              _context.n = 6;
               break;
             }
             console.error(data.description);
+            setIsLoading(false);
             return _context.a(2);
-          case 5:
-            _context.n = 6;
-            return fetch("".concat(window.routes.cart_url, "?sections=cart-drawer,cart-icon-bubble"));
           case 6:
-            sectionsResponse = _context.v;
             _context.n = 7;
-            return sectionsResponse.json();
+            return fetch("".concat(window.routes.cart_url, "?sections=cart-drawer,cart-icon-bubble"));
           case 7:
+            sectionsResponse = _context.v;
+            _context.n = 8;
+            return sectionsResponse.json();
+          case 8:
             sectionsData = _context.v;
             cartDrawer = document.querySelector('cart-drawer');
             if (cartDrawer) {
@@ -30468,16 +30481,20 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
                 cartDrawer.open();
               }
             }
-            _context.n = 9;
+            _context.n = 10;
             break;
-          case 8:
-            _context.p = 8;
+          case 9:
+            _context.p = 9;
             _t = _context.v;
             console.error('Add to cart error:', _t);
-          case 9:
+          case 10:
+            _context.p = 10;
+            setIsLoading(false);
+            return _context.f(10);
+          case 11:
             return _context.a(2);
         }
-      }, _callee, null, [[2, 8]]);
+      }, _callee, null, [[3, 9, 10, 11]]);
     }));
     return function addToCart() {
       return _ref.apply(this, arguments);
@@ -30522,9 +30539,25 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     onClick: addToCart,
-    disabled: !isTCGPlayer || !acceptTermsAndConditions,
-    className: "tw-px-[16px] tw-py-[8px] tw-text-white disabled:tw-text-black tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none ".concat(!isTCGPlayer || !acceptTermsAndConditions ? 'tw-bg-gray-400 tw-cursor-not-allowed' : 'tw-bg-[#0835DB] tw-cursor-pointer')
-  }, "Order"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    disabled: isLoading,
+    className: "tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ".concat(isLoading ? 'tw-bg-gray-400 tw-cursor-wait' : !isTCGPlayer || !acceptTermsAndConditions ? 'tw-bg-gray-400 tw-cursor-not-allowed' : 'tw-bg-[#0835DB] tw-cursor-pointer')
+  }, isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    className: "tw-animate-spin tw-h-5 tw-w-5 tw-text-white",
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("circle", {
+    className: "tw-opacity-25",
+    cx: "12",
+    cy: "12",
+    r: "10",
+    stroke: "currentColor",
+    strokeWidth: "4"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    className: "tw-opacity-75",
+    fill: "currentColor",
+    d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+  })), isLoading ? 'Processing...' : 'Order'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "tw-text-lg tw-text-black tw-font-bold"
   }, productPrice)));
 };

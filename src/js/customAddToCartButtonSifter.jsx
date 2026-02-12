@@ -5,6 +5,7 @@ const CustomAddToCartButtonSifter = () => {
 
   const [isTCGPlayer, setIsTCGPlayer] = useState(false);
   const [acceptTermsAndConditions, setAcceptTermsAndConditions] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const container = document.getElementById('product-form-buttons-holder-react');
   const variantId = container?.dataset?.variantId;
@@ -20,6 +21,9 @@ const CustomAddToCartButtonSifter = () => {
   };
 
   const addToCart = async () => {
+    // Prevent multiple clicks while loading
+    if (isLoading) return;
+
     // Check if both checkboxes are checked
     if (!isTCGPlayer || !acceptTermsAndConditions) {
       const missingItems = [];
@@ -29,6 +33,9 @@ const CustomAddToCartButtonSifter = () => {
       alert(`Please ${missingItems.join(' and ')} by checking the boxes above.`);
       return;
     }
+
+    // Start loading
+    setIsLoading(true);
 
     const webSerialNumber = generateSerialNumber();
     const formData = new FormData();
@@ -56,6 +63,7 @@ const CustomAddToCartButtonSifter = () => {
       
       if (data.status) {
         console.error(data.description);
+        setIsLoading(false);
         return;
       }
       
@@ -95,6 +103,8 @@ const CustomAddToCartButtonSifter = () => {
       }
     } catch (error) {
       console.error('Add to cart error:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -113,14 +123,22 @@ const CustomAddToCartButtonSifter = () => {
       <button 
        type="button" 
        onClick={addToCart} 
-       disabled={!isTCGPlayer || !acceptTermsAndConditions} 
-       className={`tw-px-[16px] tw-py-[8px] tw-text-white disabled:tw-text-black tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none ${
-         !isTCGPlayer || !acceptTermsAndConditions 
-           ? 'tw-bg-gray-400 tw-cursor-not-allowed' 
-           : 'tw-bg-[#0835DB] tw-cursor-pointer'
+       disabled={isLoading}
+       className={`tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ${
+         isLoading
+           ? 'tw-bg-gray-400 tw-cursor-wait'
+           : (!isTCGPlayer || !acceptTermsAndConditions)
+             ? 'tw-bg-gray-400 tw-cursor-not-allowed' 
+             : 'tw-bg-[#0835DB] tw-cursor-pointer'
        }`}
       >
-        Order
+        {isLoading && (
+          <svg className="tw-animate-spin tw-h-5 tw-w-5 tw-text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="tw-opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="tw-opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        )}
+        {isLoading ? 'Processing...' : 'Order'}
       </button>
       <span className="tw-text-lg tw-text-black tw-font-bold">{productPrice}</span>
       </div>
