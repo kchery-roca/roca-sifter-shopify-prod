@@ -41,9 +41,9 @@
         "subscriptions_app_block_YnbnaA": {
           "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
           "settings": {
-            "color_text_body": "#6D7175",
-            "dividers_color": "#8F8D8D",
-            "bacgkround_color": "#FFFFFF",
+            "color_text_body": "#6d7175",
+            "dividers_color": "#8f8d8d",
+            "bacgkround_color": "#ffffff",
             "border_thickness": 1,
             "border_radius": 0,
             "subscription_policy_url": "",
@@ -82,9 +82,9 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "small",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "media_position": "left",
@@ -95,12 +95,35 @@
         "padding_bottom": 12
       }
     },
-    "testimonials":{
+    "testimonials": {
       "type": "testimonials",
-   }
+      "blocks": {
+        "testimonial_GdrREy": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "None",
+            "author_name": "",
+            "author_company": ""
+          }
+        },
+        "testimonial_hzKigJ": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_text": "Hello",
+            "author_name": "Wolr",
+            "author_company": "checl"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_GdrREy",
+        "testimonial_hzKigJ"
+      ],
+      "settings": {}
+    }
   },
   "order": [
     "main",
-    "testimonials",
+    "testimonials"
   ]
 }
