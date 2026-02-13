@@ -30581,27 +30581,25 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     className: "tw-text-blue-500"
   }, "Privacy Policy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Available for purchase within U.S only"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-3 tw-mt-4 tw-mb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
-    className: "tw-text-base tw-font-[600]"
-  }, "Quantity:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "tw-flex tw-items-center tw-border tw-border-gray-300 tw-rounded-[8px] tw-overflow-hidden"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-flex tw-items-center tw-border tw-border-gray-300 tw-rounded-[8px] tw-overflow-hidden tw-mb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     onClick: decrementQuantity,
     disabled: quantity <= 1 || isLoading,
-    className: "tw-px-3 tw-py-2 tw-bg-gray-100 hover:tw-bg-gray-200 tw-border-r tw-border-gray-300 tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors"
+    className: "tw-px-3 tw-py-2 tw-bg-gray-100  tw-border-0 hover:tw-bg-gray-200  tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
   }, "-"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "number",
     min: "1",
     value: quantity,
     onChange: handleQuantityChange,
     disabled: isLoading,
-    className: "tw-w-16 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50"
+    className: "tw-w-16 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50 tw-text-base"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     onClick: incrementQuantity,
     disabled: isLoading,
-    className: "tw-px-3 tw-py-2 tw-bg-gray-100 hover:tw-bg-gray-200 tw-border-l tw-border-gray-300 tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors"
+    className: "tw-px-3 tw-py-2 tw-bg-gray-100 tw-border-0 hover:tw-bg-gray-200   tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
   }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-gap-4 tw-mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
@@ -30626,7 +30624,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     fill: "currentColor",
     d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
   })), isLoading ? 'Processing...' : 'Order'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "tw-text-lg tw-text-black tw-font-bold"
+    className: "tw-text-lg tw-text-black tw-font-bold tw-pt-[5px]"
   }, productPrice)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomAddToCartButtonSifter);

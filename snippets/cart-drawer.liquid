@@ -120,7 +120,7 @@
                     {%- for item in cart.items -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
-                        class="cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %}"
+                        class="cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %} {% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %}"
                         role="row"
                         {% if item.parent_relationship.parent != null %}
                           aria-label="{{- 'products.product.nested_label' | t: title: item.product.title, parent_title: item.parent_relationship.parent.title | escape -}}"
@@ -150,7 +150,7 @@
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
 
-                          <a href="{{ item.url }}" class="cart-item__name h4 break">
+                          <a href="{{ item.url }}" class="cart-item__name h4 break !tw-mt-[0.8rem]  !tw-text-[18px]">
                             {{- item.product.title | escape -}}
                           </a>
 
@@ -170,7 +170,7 @@
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="product-option">
+                            <div class="product-option tw-hidden">
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
@@ -195,7 +195,7 @@
                               {%- for property in item.properties -%}
                                 {%- assign property_first_char = property.first | slice: 0 -%}
                                 {%- if property.last != blank and property_first_char != '_' -%}
-                                  <div class="product-option">
+                                  <div class="product-option tw-hidden">
                                     <dt>{{ property.first }}:</dt>
                                     <dd>
                                       {%- if property.last contains '/uploads/' -%}
@@ -252,7 +252,7 @@
                                 </span>
                               </div>
                             {%- else -%}
-                              <span class="price price--end">
+                              <span class="price price--end !tw-mt-[1.2rem]">
                                 {{ item.original_line_price | money }}
                               </span>
                             {%- endif -%}
@@ -261,6 +261,24 @@
                               {% render 'unit-price', price: item.unit_price, measurement: item.unit_price_measurement %}
                             {%- endif -%}
                           </div>
+                          <cart-remove-button
+                            id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                            data-index="{{ item.index | plus: 1 }}"
+                          >
+                            <button
+                              type="button"
+                              class="button button--tertiary cart-remove-button"
+                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                              data-variant-id="{{ item.variant.id }}"
+                              {% if item.instructions and item.instructions.can_remove == false %}
+                                class="hidden"
+                              {% endif %}
+                            >
+                              <span class="svg-wrapper">
+                                {{- 'icon-remove.svg' | inline_asset_content -}}
+                              </span>
+                            </button>
+                          </cart-remove-button>
                         </td>
                         {%- liquid
                           assign has_qty_rules = false
@@ -281,7 +299,7 @@
                           <quantity-popover>
                             <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
                               <div class="quantity-popover-container{% if has_qty_rules or has_vol_pricing %} quantity-popover-container--hover{% endif %}">
-                                <quantity-input class="quantity cart-quantity">
+                                <quantity-input class="quantity cart-quantity tw-hidden">
                                   <button
                                     class="quantity__button"
                                     name="minus"
@@ -344,7 +362,7 @@
                                   </button>
                                 </quantity-input>
                               </div>
-                              <cart-remove-button
+                              {% comment %} <cart-remove-button
                                 id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
                                 data-index="{{ item.index | plus: 1 }}"
                               >
@@ -361,7 +379,7 @@
                                     {{- 'icon-remove.svg' | inline_asset_content -}}
                                   </span>
                                 </button>
-                              </cart-remove-button>
+                              </cart-remove-button> {% endcomment %}
                             </div>
                             {%- if has_qty_rules or has_vol_pricing -%}
                               <button

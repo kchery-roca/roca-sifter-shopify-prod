@@ -159,13 +159,13 @@ const CustomAddToCartButtonSifter = () => {
       
       {/* Quantity Selector */}
       <div className="tw-flex tw-items-center tw-gap-3 tw-mt-4 tw-mb-2">
-        <label className="tw-text-base tw-font-[600]">Quantity:</label>
-        <div className="tw-flex tw-items-center tw-border tw-border-gray-300 tw-rounded-[8px] tw-overflow-hidden">
+        {/* <label className="tw-text-base tw-font-[600]">Quantity:</label> */}
+        <div className="tw-flex tw-items-center tw-border tw-border-gray-300 tw-rounded-[8px] tw-overflow-hidden tw-mb-3">
           <button
             type="button"
             onClick={decrementQuantity}
             disabled={quantity <= 1 || isLoading}
-            className="tw-px-3 tw-py-2 tw-bg-gray-100 hover:tw-bg-gray-200 tw-border-r tw-border-gray-300 tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors"
+            className="tw-px-3 tw-py-2 tw-bg-gray-100  tw-border-0 hover:tw-bg-gray-200  tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
           >
             -
           </button>
@@ -175,13 +175,13 @@ const CustomAddToCartButtonSifter = () => {
             value={quantity}
             onChange={handleQuantityChange}
             disabled={isLoading}
-            className="tw-w-16 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50"
+            className="tw-w-16 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50 tw-text-base"
           />
           <button
             type="button"
             onClick={incrementQuantity}
             disabled={isLoading}
-            className="tw-px-3 tw-py-2 tw-bg-gray-100 hover:tw-bg-gray-200 tw-border-l tw-border-gray-300 tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors"
+            className="tw-px-3 tw-py-2 tw-bg-gray-100 tw-border-0 hover:tw-bg-gray-200   tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
           >
             +
           </button>
@@ -189,6 +189,7 @@ const CustomAddToCartButtonSifter = () => {
       </div>
 
       <div className="tw-flex tw-gap-4 tw-mt-2">
+
       <button 
        type="button" 
        onClick={addToCart} 
@@ -209,7 +210,7 @@ const CustomAddToCartButtonSifter = () => {
         )}
         {isLoading ? 'Processing...' : 'Order'}
       </button>
-      <span className="tw-text-lg tw-text-black tw-font-bold">{productPrice}</span>
+      <span className="tw-text-lg tw-text-black tw-font-bold tw-pt-[5px]">{productPrice}</span>
       </div>
     </div>
   );
