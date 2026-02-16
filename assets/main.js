@@ -30594,7 +30594,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     value: quantity,
     onChange: handleQuantityChange,
     disabled: isLoading,
-    className: "tw-w-16 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50 tw-text-base"
+    className: "tw-w-20 tw-w-20 tw-h-12 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50 tw-text-base"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     onClick: incrementQuantity,
@@ -30606,7 +30606,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     type: "button",
     onClick: addToCart,
     disabled: isLoading,
-    className: "tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ".concat(isLoading ? 'tw-bg-gray-400 tw-cursor-wait' : !isTCGPlayer || !acceptTermsAndConditions ? 'tw-bg-gray-400 tw-cursor-not-allowed' : 'tw-bg-[#0835DB] tw-cursor-pointer')
+    className: "tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[2px] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ".concat(isLoading ? 'tw-bg-gray-400 tw-cursor-wait' : !isTCGPlayer || !acceptTermsAndConditions ? 'tw-bg-gray-400 tw-cursor-not-allowed' : 'tw-bg-[#0835DB] tw-cursor-pointer')
   }, isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
     className: "tw-animate-spin tw-h-5 tw-w-5 tw-text-white",
     xmlns: "http://www.w3.org/2000/svg",

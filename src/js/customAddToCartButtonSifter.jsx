@@ -175,7 +175,7 @@ const CustomAddToCartButtonSifter = () => {
             value={quantity}
             onChange={handleQuantityChange}
             disabled={isLoading}
-            className="tw-w-16 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50 tw-text-base"
+            className="tw-w-20 tw-w-20 tw-h-12 tw-text-center tw-py-2 tw-border-0 tw-outline-none tw-font-[600] disabled:tw-bg-gray-50 tw-text-base"
           />
           <button
             type="button"
@@ -194,7 +194,7 @@ const CustomAddToCartButtonSifter = () => {
        type="button" 
        onClick={addToCart} 
        disabled={isLoading}
-       className={`tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[150%] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ${
+       className={`tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[2px] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ${
          isLoading
            ? 'tw-bg-gray-400 tw-cursor-wait'
            : (!isTCGPlayer || !acceptTermsAndConditions)
