@@ -28,6 +28,9 @@
 .\!tw-mb-2 {
     margin-bottom: 0.5rem !important
 }
+.\!tw-mt-0 {
+    margin-top: 0px !important
+}
 .\!tw-mt-\[0\.8rem\] {
     margin-top: 0.8rem !important
 }
@@ -70,23 +73,17 @@
 .tw-hidden {
     display: none
 }
+.tw-h-12 {
+    height: 3rem
+}
 .tw-h-5 {
     height: 1.25rem
 }
 .tw-h-\[24px\] {
     height: 24px
 }
-.tw-h-12 {
-    height: 3rem
-}
-.tw-h-\[12px\] {
-    height: 12px
-}
-.\!tw-h-\[12px\] {
-    height: 12px !important
-}
-.tw-w-16 {
-    width: 4rem
+.tw-w-20 {
+    width: 5rem
 }
 .tw-w-5 {
     width: 1.25rem
@@ -96,15 +93,6 @@
 }
 .tw-w-full {
     width: 100%
-}
-.tw-w-20 {
-    width: 5rem
-}
-.tw-w-\[20px\] {
-    width: 20px
-}
-.\!tw-w-\[20px\] {
-    width: 20px !important
 }
 .tw-min-w-\[120px\] {
     min-width: 120px
@@ -159,11 +147,17 @@
 .tw-overflow-hidden {
     overflow: hidden
 }
+.tw-rounded-\[7px\] {
+    border-radius: 7px
+}
 .tw-rounded-\[8px\] {
     border-radius: 8px
 }
 .tw-rounded-full {
     border-radius: 9999px
+}
+.\!tw-border-\[10px\] {
+    border-width: 10px !important
 }
 .tw-border {
     border-width: 1px
@@ -174,11 +168,18 @@
 .tw-border-2 {
     border-width: 2px
 }
+.\!tw-border-\[12px\] {
+    border-width: 12px !important
+}
 .\!tw-border-t-0 {
     border-top-width: 0px !important
 }
 .tw-border-none {
     border-style: none
+}
+.\!tw-border-\[gainsboro\] {
+    --tw-border-opacity: 1 !important;
+    border-color: rgb(220 220 220 / var(--tw-border-opacity, 1)) !important
 }
 .tw-border-gray-300 {
     --tw-border-opacity: 1;
@@ -224,6 +225,13 @@
 }
 .tw-p-3 {
     padding: 0.75rem
+}
+.tw-p-\[2\%\] {
+    padding: 2%
+}
+.\!tw-px-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important
 }
 .tw-px-3 {
     padding-left: 0.75rem;
@@ -280,6 +288,9 @@
 .\!tw-text-xs {
     font-size: 12.5px !important
 }
+.tw-text-\[13px\] {
+    font-size: 13px
+}
 .tw-text-\[14px\] {
     font-size: 14px
 }
@@ -303,6 +314,9 @@
 }
 .tw-text-xs {
     font-size: 12.5px
+}
+.tw-text-\[12px\] {
+    font-size: 12px
 }
 .tw-font-\[400\] {
     font-weight: 400
@@ -348,12 +362,6 @@
 }
 .tw-tracking-\[0px\] {
     letter-spacing: 0px
-}
-.tw-tracking-\[150\%\] {
-    letter-spacing: 150%
-}
-.tw-tracking-\[40px\] {
-    letter-spacing: 40px
 }
 .tw-tracking-\[2px\] {
     letter-spacing: 2px

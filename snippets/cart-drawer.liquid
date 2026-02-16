@@ -120,7 +120,11 @@
                     {%- for item in cart.items -%}
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
-                        class="cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %} {% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %}"
+                        class="
+                        cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %} 
+                        {% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %}
+                        "
+                        style="border: solid 1px #e0e0e0; padding: 2%; margin-bottom: 1.5rem; border-radius: 7px;"
                         role="row"
                         {% if item.parent_relationship.parent != null %}
                           aria-label="{{- 'products.product.nested_label' | t: title: item.product.title, parent_title: item.parent_relationship.parent.title | escape -}}"
@@ -145,12 +149,12 @@
                           {% endif %}
                         </td>
 
-                        <td class="cart-item__details" role="cell" headers="CartDrawer-ColumnProduct">
+                        <td class="cart-item__details !tw-pt-0" role="cell" headers="CartDrawer-ColumnProduct">
                           {%- if settings.show_vendor -%}
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
 
-                          <a href="{{ item.url }}" class="cart-item__name h4 break !tw-mt-[0.8rem]  !tw-text-[18px]">
+                          <a href="{{ item.url }}" class="cart-item__name h4 break !tw-mt-[0.8rem] !tw-mt-0  !tw-text-[18px] tw-tracking-[0px] tw-leading-[20px] tw-font-[600]">
                             {{- item.product.title | escape -}}
                           </a>
 
@@ -233,7 +237,7 @@
                           </ul>
                         </td>
 
-                        <td class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
+                        <td class="cart-item__totals right !tw-pt-0" role="cell" headers="CartDrawer-ColumnTotal">
                           {%- render 'loading-spinner' -%}
                           <div class="cart-item__price-wrapper tw-hidden">
                             {%- if item.original_line_price != item.final_line_price -%}
@@ -478,14 +482,12 @@
                             </div>
                           </quantity-popover>
                         </td>
-                        <tr style="display: table-row !important;">
-                          <td colspan="3" class="!tw-pt-0">
+                        <td colspan="3" class="!tw-pt-0 !tw-px-0" style="grid-column: 1 / -1;">
                             <div class="tw-border-2 tw-py-[2%] tw-px-4 tw-rounded-[8px] tw-bg-[#f6f6f7] {% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %}" style="border: solid 2px #0835DB">
-                              <p class="tw-mb-2 tw-text-[14px]"> <span class="tw-font-bold">Service Plan:</span> $25/month X 12 months: $300.00</p>
+                              <p class="tw-mb-2 tw-text-[12px]"> <span class="tw-font-bold">Service Plan:</span> $25/month X 12 months: $300.00</p>
                               <p class="tw-my-2 tw-text-xs tw-tracking-[0px] tw-leading-[20px]">Your card will be charged for the annual subscription 1 week after delivery </p>
                             </div>
                           </td>
-                        </tr>
                       </tr>
                       {% comment %} <tr class="{% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %} tw-border-2">
                         <td class="!tw-pt-0">
