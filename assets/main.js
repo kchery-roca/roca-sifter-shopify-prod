@@ -30557,7 +30557,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     htmlFor: "isTCGPlayer",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
   }, "I acknowledge that I am required to have a ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "https://www.tcgplayer.com/become-a-seller",
+    href: "https://store.tcgplayer.com/oauth/login/register",
     target: "_blank",
     className: "tw-text-blue-500"
   }, "TCGplayer seller account"), "  in order to operate a Roca Sifter ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -30571,12 +30571,8 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "acceptTermsAndConditions",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
-  }, "By clicking order I agree to the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/pages/terms-and-conditions",
-    target: "_blank",
-    className: "tw-text-blue-500"
-  }, "Terms and Conditions"), " and acknowledge the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "/pages/privacy-policy",
+  }, "By clicking order I agree to the Terms and Conditions and acknowledge the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy",
     target: "_blank",
     className: "tw-text-blue-500"
   }, "Privacy Policy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Available for purchase within U.S only"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {

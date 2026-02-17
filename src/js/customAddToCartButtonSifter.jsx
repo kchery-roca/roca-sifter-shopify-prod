@@ -149,11 +149,11 @@ const CustomAddToCartButtonSifter = () => {
     <div>
       <div className="tw-flex tw-items-center tw-gap-2">
         <input type="checkbox" checked={isTCGPlayer} onChange={() => setIsTCGPlayer(!isTCGPlayer)} />
-        <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">I acknowledge that I am required to have a <a href="https://www.tcgplayer.com/become-a-seller" target="_blank" className="tw-text-blue-500">TCGplayer seller account</a>  in order to operate a Roca Sifter </label>
+        <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">I acknowledge that I am required to have a <a href="https://store.tcgplayer.com/oauth/login/register" target="_blank" className="tw-text-blue-500">TCGplayer seller account</a>  in order to operate a Roca Sifter </label>
       </div>
       <div className="tw-flex tw-items-center tw-gap-2">
       <input type="checkbox" checked={acceptTermsAndConditions} onChange={() => setAcceptTermsAndConditions(!acceptTermsAndConditions)} />
-      <label htmlFor="acceptTermsAndConditions" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">By clicking order I agree to the <a href="/pages/terms-and-conditions" target="_blank" className="tw-text-blue-500">Terms and Conditions</a> and acknowledge the <a href="/pages/privacy-policy" target="_blank" className="tw-text-blue-500">Privacy Policy</a></label>
+      <label htmlFor="acceptTermsAndConditions" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">By clicking order I agree to the Terms and Conditions and acknowledge the <a href="https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy" target="_blank" className="tw-text-blue-500">Privacy Policy</a></label>
       </div>
       <p>Available for purchase within U.S only</p>
       
