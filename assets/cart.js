@@ -10,7 +10,117 @@ class CartRemoveButton extends HTMLElement {
   }
 }
 
+
+
 customElements.define('cart-remove-button', CartRemoveButton);
+
+
+class CartBundleRemoveButton extends HTMLElement {
+  constructor() {
+    super();
+
+    this.addEventListener('click', async (event) => {
+      event.preventDefault();
+      
+      // Get the cart items container
+      const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
+      if (!cartItems) {
+        console.error('Could not find cart-items or cart-drawer-items');
+        return;
+      }
+      
+      // 1. Get Serial Number
+      const serialNumber = this.dataset.serialNumber;
+      if (!serialNumber) {
+        console.error('No serial number found');
+        return;
+      }
+      
+      try {
+        // 2. Fetch Current Cart
+        const response = await fetch('/cart.js');
+        const cart = await response.json();
+        
+        // 3. Find all items with matching serial number
+        const itemsToRemove = cart.items.filter(item => 
+          item.properties && item.properties['Web-Serial-Number'] === serialNumber
+        );
+        
+        if (itemsToRemove.length === 0) {
+          alert('No items found with this serial number');
+          return;
+        }
+        
+        // 4. Enable loading for ALL matching items
+        itemsToRemove.forEach(item => {
+          cartItems.enableLoading(item.index + 1);
+        });
+        
+        // 5. Build updates object - set quantity to 0 for each matching item
+        const updates = {};
+        itemsToRemove.forEach(item => {
+          updates[item.id] = 0;
+        });
+        
+        // 6. Update cart using Shopify's update endpoint
+        const updateResponse = await fetch('/cart/update.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ updates })
+        });
+        
+        if (!updateResponse.ok) {
+          throw new Error('Failed to update cart');
+        }
+        
+        const updatedCart = await updateResponse.json();
+        
+        // 7. Update cart icon bubble
+        const iconBubbleResponse = await fetch(`${routes.cart_url}?section_id=cart-icon-bubble`);
+        const iconBubbleHtml = await iconBubbleResponse.text();
+        const iconBubbleDoc = new DOMParser().parseFromString(iconBubbleHtml, 'text/html');
+        const newIconBubble = iconBubbleDoc.querySelector('.shopify-section');
+        const currentIconBubble = document.querySelector('#cart-icon-bubble');
+        
+        if (currentIconBubble && newIconBubble) {
+          currentIconBubble.innerHTML = newIconBubble.innerHTML;
+        }
+        
+        // 8. Trigger cart drawer refresh
+        await cartItems.onCartUpdate();
+        
+        // 9. Publish cart update event (for any other listeners)
+        if (typeof publish !== 'undefined' && typeof PUB_SUB_EVENTS !== 'undefined') {
+          publish(PUB_SUB_EVENTS.cartUpdate, { 
+            source: 'cart-bundle-remove', 
+            cartData: updatedCart 
+          });
+        }
+        
+      } catch (error) {
+        console.error('Error removing bundle:', error);
+        
+        // Disable loading on error
+        try {
+          const response = await fetch('/cart.js');
+          const cart = await response.json();
+          cart.items.forEach((item, index) => {
+            cartItems.disableLoading(index + 1);
+          });
+        } catch (e) {
+          // Fallback: reload page
+          window.location.reload();
+        }
+        
+        alert('Failed to remove items from cart. Please try again.');
+      }
+    });
+  }
+}
+
+customElements.define('cart-bundle-remove-button', CartBundleRemoveButton);
 
 class CartItems extends HTMLElement {
   constructor() {

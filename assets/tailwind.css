@@ -147,17 +147,11 @@
 .tw-overflow-hidden {
     overflow: hidden
 }
-.tw-rounded-\[7px\] {
-    border-radius: 7px
-}
 .tw-rounded-\[8px\] {
     border-radius: 8px
 }
 .tw-rounded-full {
     border-radius: 9999px
-}
-.\!tw-border-\[10px\] {
-    border-width: 10px !important
 }
 .tw-border {
     border-width: 1px
@@ -168,18 +162,11 @@
 .tw-border-2 {
     border-width: 2px
 }
-.\!tw-border-\[12px\] {
-    border-width: 12px !important
-}
 .\!tw-border-t-0 {
     border-top-width: 0px !important
 }
 .tw-border-none {
     border-style: none
-}
-.\!tw-border-\[gainsboro\] {
-    --tw-border-opacity: 1 !important;
-    border-color: rgb(220 220 220 / var(--tw-border-opacity, 1)) !important
 }
 .tw-border-gray-300 {
     --tw-border-opacity: 1;
@@ -225,9 +212,6 @@
 }
 .tw-p-3 {
     padding: 0.75rem
-}
-.tw-p-\[2\%\] {
-    padding: 2%
 }
 .\!tw-px-0 {
     padding-left: 0px !important;
@@ -288,8 +272,8 @@
 .\!tw-text-xs {
     font-size: 12.5px !important
 }
-.tw-text-\[13px\] {
-    font-size: 13px
+.tw-text-\[12px\] {
+    font-size: 12px
 }
 .tw-text-\[14px\] {
     font-size: 14px
@@ -314,9 +298,6 @@
 }
 .tw-text-xs {
     font-size: 12.5px
-}
-.tw-text-\[12px\] {
-    font-size: 12px
 }
 .tw-font-\[400\] {
     font-weight: 400

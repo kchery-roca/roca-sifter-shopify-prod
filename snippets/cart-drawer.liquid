@@ -265,24 +265,45 @@
                               {% render 'unit-price', price: item.unit_price, measurement: item.unit_price_measurement %}
                             {%- endif -%}
                           </div>
-                          <cart-remove-button
-                            id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                            <button
-                              type="button"
-                              class="button button--tertiary cart-remove-button"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                              data-variant-id="{{ item.variant.id }}"
-                              {% if item.instructions and item.instructions.can_remove == false %}
-                                class="hidden"
-                              {% endif %}
+
+                          {% if item.product.handle == 'roca-sifter' %}
+                            <cart-bundle-remove-button
+                              id="CartDrawer-Bundle-Remove-{{ item.index | plus: 1 }}"
+                              data-serial-number="{{ item.properties['Web-Serial-Number'] }}"
+                              data-index="{{ item.index | plus: 1 }}">
+                              <button
+                                type="button"
+                                class="button button--tertiary cart-bundle-remove-button"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                              >
+                                remove 
+                                <span class="svg-wrapper">
+                                  {{- 'icon-remove.svg' | inline_asset_content -}}
+                                </span>
+                              </button>
+                            </cart-bundle-remove-button>
+                          {%  else %}
+                            <cart-remove-button
+                              id="CartDrawer-Remove-{{ item.index | plus: 1 }}"
+                              data-index="{{ item.index | plus: 1 }}"
                             >
-                              <span class="svg-wrapper">
-                                {{- 'icon-remove.svg' | inline_asset_content -}}
-                              </span>
-                            </button>
-                          </cart-remove-button>
+                              <button
+                                type="button"
+                                class="button button--tertiary cart-remove-button"
+                                aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                                data-variant-id="{{ item.variant.id }}"
+                                {% if item.instructions and item.instructions.can_remove == false %}
+                                  class="hidden"
+                                {% endif %}
+                              >
+                                <span class="svg-wrapper">
+                                  {{- 'icon-remove.svg' | inline_asset_content -}}
+                                </span>
+                              </button>
+                            </cart-remove-button>
+                          {% endif %}
+
+
                         </td>
                         {%- liquid
                           assign has_qty_rules = false
@@ -488,6 +509,7 @@
                               <p class="tw-my-2 tw-text-xs tw-tracking-[0px] tw-leading-[20px]">Your card will be charged for the annual subscription 1 week after delivery </p>
                             </div>
                           </td>
+                          
                       </tr>
                       {% comment %} <tr class="{% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %} tw-border-2">
                         <td class="!tw-pt-0">

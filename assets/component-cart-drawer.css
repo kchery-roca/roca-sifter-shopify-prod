@@ -274,7 +274,6 @@ cart-drawer-items {
 }
 
 .cart-drawer .cart-item__totals {
-  pointer-events: none;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
