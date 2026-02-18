@@ -8,10 +8,19 @@ const CustomAddToCartButtonSifter = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
+
+  const openZendeskChat = () => {
+    zE('messenger', 'open')
+  }
+
+
+
   // Sync React state with browser-restored checkbox state on mount
   useEffect(() => {
     const tcgCheckbox = document.querySelector('input[type="checkbox"]');
     const termsCheckbox = document.querySelectorAll('input[type="checkbox"]')[1];
+
+
     
     if (tcgCheckbox?.checked) {
       setIsTCGPlayer(true);
@@ -20,6 +29,8 @@ const CustomAddToCartButtonSifter = () => {
       setAcceptTermsAndConditions(true);
     }
   }, []);
+
+
 
   const container = document.getElementById('product-form-buttons-holder-react');
   const variantId = container?.dataset?.variantId;
@@ -149,13 +160,22 @@ const CustomAddToCartButtonSifter = () => {
     <div>
       <div className="tw-flex tw-items-center tw-gap-2">
         <input type="checkbox" checked={isTCGPlayer} onChange={() => setIsTCGPlayer(!isTCGPlayer)} />
-        <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">I acknowledge that I am required to have a <a href="https://store.tcgplayer.com/oauth/login/register" target="_blank" className="tw-text-blue-500">TCGplayer seller account</a>  in order to operate a Roca Sifter </label>
+        <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">
+          I acknowledge that I am required to have a 
+          <a href="https://store.tcgplayer.com/oauth/login/register" target="_blank" className="tw-text-[#0000ef] tw-mx-3">TCGplayer seller account</a>  
+          in order to operate a Roca Sifter.  </label>
+          
       </div>
+
+      
+
       <div className="tw-flex tw-items-center tw-gap-2">
       <input type="checkbox" checked={acceptTermsAndConditions} onChange={() => setAcceptTermsAndConditions(!acceptTermsAndConditions)} />
-      <label htmlFor="acceptTermsAndConditions" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">By clicking order I agree to the Terms and Conditions and acknowledge the <a href="https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy" target="_blank" className="tw-text-blue-500">Privacy Policy</a></label>
+      <label htmlFor="acceptTermsAndConditions" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">By clicking order I agree to the Terms and Conditions and acknowledge the 
+         <a href="https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy" target="_blank" className="tw-text-[#0000ef] tw-ms-2">Privacy Policy</a></label>
       </div>
-      <p>Available for purchase within U.S only</p>
+      <p className="tw-mb-2">Available for purchase within U.S</p>
+      <p className="tw-mb-4 "><span className="tw-font-bold">Have questions?</span> <a href="#" onClick={openZendeskChat}>Contact Us</a></p>
       
       {/* Quantity Selector */}
       <div className="tw-flex tw-items-center tw-gap-3 tw-mt-4 tw-mb-2">
@@ -198,7 +218,7 @@ const CustomAddToCartButtonSifter = () => {
          isLoading
            ? 'tw-bg-gray-400 tw-cursor-wait'
            : (!isTCGPlayer || !acceptTermsAndConditions)
-             ? 'tw-bg-gray-400 tw-cursor-not-allowed' 
+             ? 'tw-bg-[#0835DB] tw-cursor-pointer' 
              : 'tw-bg-[#0835DB] tw-cursor-pointer'
        }`}
       >

@@ -30385,6 +30385,9 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     _useState8 = _slicedToArray(_useState7, 2),
     quantity = _useState8[0],
     setQuantity = _useState8[1];
+  var openZendeskChat = function openZendeskChat() {
+    zE('messenger', 'open');
+  };
 
   // Sync React state with browser-restored checkbox state on mount
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -30556,11 +30559,11 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "isTCGPlayer",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
-  }, "I acknowledge that I am required to have a ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "I acknowledge that I am required to have a", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://store.tcgplayer.com/oauth/login/register",
     target: "_blank",
-    className: "tw-text-blue-500"
-  }, "TCGplayer seller account"), "  in order to operate a Roca Sifter ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-text-[#0000ef] tw-mx-3"
+  }, "TCGplayer seller account"), "in order to operate a Roca Sifter.  ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "checkbox",
@@ -30571,11 +30574,20 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "acceptTermsAndConditions",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
-  }, "By clicking order I agree to the Terms and Conditions and acknowledge the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "By clicking order I agree to the Terms and Conditions and acknowledge the", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy",
     target: "_blank",
-    className: "tw-text-blue-500"
-  }, "Privacy Policy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Available for purchase within U.S only"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-text-[#0000ef] tw-ms-2"
+  }, "Privacy Policy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "tw-mb-2"
+  }, "Available for purchase within U.S"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "tw-mb-4 "
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "tw-font-bold"
+  }, "Have questions?"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "#",
+    onClick: openZendeskChat
+  }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-3 tw-mt-4 tw-mb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-border tw-border-gray-300 tw-rounded-[8px] tw-overflow-hidden tw-mb-3"
@@ -30602,7 +30614,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     type: "button",
     onClick: addToCart,
     disabled: isLoading,
-    className: "tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[2px] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ".concat(isLoading ? 'tw-bg-gray-400 tw-cursor-wait' : !isTCGPlayer || !acceptTermsAndConditions ? 'tw-bg-gray-400 tw-cursor-not-allowed' : 'tw-bg-[#0835DB] tw-cursor-pointer')
+    className: "tw-px-[16px] tw-py-[8px] tw-text-white tw-py-2 tw-rounded-[8px] tw-text-base tw-font-[600] tw-tracking-[2px] tw-border-none tw-min-w-[120px] tw-flex tw-items-center tw-justify-center tw-gap-2 ".concat(isLoading ? 'tw-bg-gray-400 tw-cursor-wait' : !isTCGPlayer || !acceptTermsAndConditions ? 'tw-bg-[#0835DB] tw-cursor-pointer' : 'tw-bg-[#0835DB] tw-cursor-pointer')
   }, isLoading && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
     className: "tw-animate-spin tw-h-5 tw-w-5 tw-text-white",
     xmlns: "http://www.w3.org/2000/svg",
