@@ -30385,6 +30385,10 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     _useState8 = _slicedToArray(_useState7, 2),
     quantity = _useState8[0],
     setQuantity = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState0 = _slicedToArray(_useState9, 2),
+    validationError = _useState0[0],
+    setValidationError = _useState0[1];
   var openZendeskChat = function openZendeskChat() {
     zE('messenger', 'open');
   };
@@ -30446,9 +30450,10 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
             missingItems = [];
             if (!isTCGPlayer) missingItems.push('acknowledge TCGplayer seller account requirement');
             if (!acceptTermsAndConditions) missingItems.push('agree to Terms and Conditions');
-            alert("Please ".concat(missingItems.join(' and '), " by checking the boxes above."));
+            setValidationError("Please ".concat(missingItems.join(' and '), " by checking the boxes above."));
             return _context.a(2);
           case 2:
+            setValidationError(null);
             // Start loading
             setIsLoading(true);
 
@@ -30550,13 +30555,17 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   }();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: validationError && !isTCGPlayer ? 'tw-inline-flex tw-ring-2 tw-ring-red-500 tw-ring-offset-0 tw-rounded' : 'tw-inline-flex'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "checkbox",
     checked: isTCGPlayer,
     onChange: function onChange() {
-      return setIsTCGPlayer(!isTCGPlayer);
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+      setIsTCGPlayer(!isTCGPlayer);
+      setValidationError(null);
+    },
+    className: validationError && !isTCGPlayer ? 'tw-outline-none' : ''
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "isTCGPlayer",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
   }, "I acknowledge that I am required to have a", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
@@ -30565,13 +30574,17 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     className: "tw-text-[#0000ef] tw-mx-3"
   }, "TCGplayer seller account"), "in order to operate a Roca Sifter.  ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: validationError && !acceptTermsAndConditions ? 'tw-inline-flex tw-ring-2 tw-ring-red-500 tw-ring-offset-0 tw-rounded' : 'tw-inline-flex'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "checkbox",
     checked: acceptTermsAndConditions,
     onChange: function onChange() {
-      return setAcceptTermsAndConditions(!acceptTermsAndConditions);
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+      setAcceptTermsAndConditions(!acceptTermsAndConditions);
+      setValidationError(null);
+    },
+    className: validationError && !acceptTermsAndConditions ? 'tw-outline-none' : ''
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "acceptTermsAndConditions",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
   }, "By clicking order I agree to the Terms and Conditions and acknowledge the", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
@@ -30608,7 +30621,9 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     onClick: incrementQuantity,
     disabled: isLoading,
     className: "tw-px-3 tw-py-2 tw-bg-gray-100 tw-border-0 hover:tw-bg-gray-200   tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
-  }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "+"))), validationError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "tw-text-red-600 tw-mb-2"
+  }, validationError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-gap-4 tw-mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
