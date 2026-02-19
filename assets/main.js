@@ -30467,7 +30467,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   };
   var addToCart = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var missingItems, serialNumbers, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
+      var serialNumbers, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -30481,10 +30481,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
               _context.n = 2;
               break;
             }
-            missingItems = [];
-            if (!isTCGPlayer) missingItems.push('acknowledge TCGplayer seller account requirement');
-            if (!acceptTermsAndConditions) missingItems.push('agree to Terms and Conditions');
-            setValidationError("Please ".concat(missingItems.join(' and '), " by checking the boxes above."));
+            setValidationError('Acknowledge you will need a seller account to operate the Roca Sifter and agree to Terms & Conditions to continue.');
             return _context.a(2);
           case 2:
             setValidationError(null);
@@ -30587,7 +30584,16 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
       return _ref.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "tw-mb-2"
+  }, "Available for purchase within U.S."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "tw-mb-4 "
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "tw-font-bold"
+  }, "Have questions?"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "#",
+    onClick: openZendeskChat
+  }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: validationError && !isTCGPlayer ? 'tw-inline-flex tw-ring-2 tw-ring-red-500 tw-ring-offset-0 tw-rounded' : 'tw-inline-flex'
@@ -30625,16 +30631,9 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     href: "https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy",
     target: "_blank",
     className: "tw-text-[#0000ef] tw-ms-2"
-  }, "Privacy Policy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "tw-mb-2"
-  }, "Available for purchase within U.S"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "tw-mb-4 "
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
-    className: "tw-font-bold"
-  }, "Have questions?"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "#",
-    onClick: openZendeskChat
-  }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Privacy Policy"))), validationError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "tw-text-red-600 tw-mb-2"
+  }, validationError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-3 tw-mt-4 tw-mb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-border tw-border-gray-300 tw-rounded-[8px] tw-overflow-hidden tw-mb-3"
@@ -30655,9 +30654,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     onClick: incrementQuantity,
     disabled: isLoading,
     className: "tw-px-3 tw-py-2 tw-bg-gray-100 tw-border-0 hover:tw-bg-gray-200   tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
-  }, "+"))), validationError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-    className: "tw-text-red-600 tw-mb-2"
-  }, validationError), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-gap-4 tw-mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",

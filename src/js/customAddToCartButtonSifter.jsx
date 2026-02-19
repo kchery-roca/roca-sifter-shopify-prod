@@ -122,10 +122,7 @@ const CustomAddToCartButtonSifter = () => {
 
     // Check if both checkboxes are checked
     if (!isTCGPlayer || !acceptTermsAndConditions) {
-      const missingItems = [];
-      if (!isTCGPlayer) missingItems.push('acknowledge TCGplayer seller account requirement');
-      if (!acceptTermsAndConditions) missingItems.push('agree to Terms and Conditions');
-      setValidationError(`Please ${missingItems.join(' and ')} by checking the boxes above.`);
+      setValidationError('Acknowledge you will need a seller account to operate the Roca Sifter and agree to Terms & Conditions to continue.');
       return;
     }
 
@@ -214,6 +211,10 @@ const CustomAddToCartButtonSifter = () => {
 
   return (
     <div>
+
+      <p className="tw-mb-2">Available for purchase within U.S.</p>
+      <p className="tw-mb-4 "><span className="tw-font-bold">Have questions?</span> <a href="#" onClick={openZendeskChat}>Contact Us</a></p>
+
       <div className="tw-flex tw-items-center tw-gap-2">
         <span className={validationError && !isTCGPlayer ? 'tw-inline-flex tw-ring-2 tw-ring-red-500 tw-ring-offset-0 tw-rounded' : 'tw-inline-flex'}>
           <input type="checkbox" checked={isTCGPlayer} onChange={() => { setIsTCGPlayer(!isTCGPlayer); setValidationError(null); }} className={validationError && !isTCGPlayer ? 'tw-outline-none' : ''} />
@@ -234,8 +235,11 @@ const CustomAddToCartButtonSifter = () => {
       <label htmlFor="acceptTermsAndConditions" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">By clicking order I agree to the Terms and Conditions and acknowledge the 
          <a href="https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy" target="_blank" className="tw-text-[#0000ef] tw-ms-2">Privacy Policy</a></label>
       </div>
-      <p className="tw-mb-2">Available for purchase within U.S</p>
-      <p className="tw-mb-4 "><span className="tw-font-bold">Have questions?</span> <a href="#" onClick={openZendeskChat}>Contact Us</a></p>
+
+      {validationError && (
+        <p className="tw-text-red-600 tw-mb-2">{validationError}</p>
+      )}
+
       
       {/* Quantity Selector */}
       <div className="tw-flex tw-items-center tw-gap-3 tw-mt-4 tw-mb-2">
@@ -268,9 +272,7 @@ const CustomAddToCartButtonSifter = () => {
         </div>
       </div>
 
-      {validationError && (
-        <p className="tw-text-red-600 tw-mb-2">{validationError}</p>
-      )}
+
 
       <div className="tw-flex tw-gap-4 tw-mt-2">
 
@@ -296,6 +298,7 @@ const CustomAddToCartButtonSifter = () => {
       </button>
       <span className="tw-text-lg tw-text-black tw-font-bold tw-pt-[5px]">{productPrice}</span>
       </div>
+      
     </div>
   );
 };
