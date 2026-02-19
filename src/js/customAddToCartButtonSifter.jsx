@@ -16,6 +16,61 @@ const CustomAddToCartButtonSifter = () => {
 
 
 
+  // When the cart updates, check if it's empty and inject the empty state into the drawer
+  useEffect(() => {
+    const handleCartUpdate = (event) => {
+      const itemCount = event?.cartData?.item_count;
+      if (itemCount !== 0) return;
+
+      const cartDrawerEl = document.querySelector('cart-drawer');
+      const drawerInner = cartDrawerEl?.querySelector('.drawer__inner');
+      if (!cartDrawerEl || !drawerInner) return;
+
+      // is-empty class drives the CSS (hides header/footer, shows empty div)
+      cartDrawerEl.classList.add('is-empty');
+
+      // Ensure the outer empty wrapper exists
+      let innerEmpty = drawerInner.querySelector('.drawer__inner-empty');
+      if (!innerEmpty) {
+        innerEmpty = document.createElement('div');
+        innerEmpty.className = 'drawer__inner-empty';
+        drawerInner.insertBefore(innerEmpty, drawerInner.firstChild);
+      }
+
+      // Inject the full empty-content block if not already present
+      if (!innerEmpty.querySelector('.cart-drawer__empty-content')) {
+        innerEmpty.innerHTML = `
+        <div class="cart-drawer__warnings center cart-drawer__warnings--has-collection">
+          <div class="cart-drawer__empty-content">
+            <h2 class="cart__empty-text">Your cart is empty</h2>
+            <button class="drawer__close" type="button" onclick="this.closest('cart-drawer').close()" aria-label="Close">
+              <span class="svg-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-close" viewBox="0 0 18 17">
+                  <path fill="currentColor" d="M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z"></path>
+                </svg>
+              </span>
+            </button>
+            <a href="/collections/all" class="button">Continue shopping</a>
+            <p class="cart__login-title h3">Have an account?</p>
+            <p class="cart__login-paragraph">
+              <a href="/customer_authentication/redirect?locale=en&region_country=US" class="link underlined-link">Log in</a> to check out faster.
+            </p>
+          </div>
+        </div>
+        `;
+      }
+    };
+
+    // subscribe/publish are plain script globals, not on window
+    const sub = typeof subscribe !== 'undefined' && typeof PUB_SUB_EVENTS !== 'undefined'
+      ? subscribe(PUB_SUB_EVENTS.cartUpdate, handleCartUpdate)
+      : null;
+
+    return () => {
+      if (typeof sub === 'function') sub();
+    };
+  }, []);
+
   // Sync React state with browser-restored checkbox state on mount
   useEffect(() => {
     const tcgCheckbox = document.querySelector('input[type="checkbox"]');

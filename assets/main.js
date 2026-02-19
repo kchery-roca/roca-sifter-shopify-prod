@@ -30393,6 +30393,40 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     zE('messenger', 'open');
   };
 
+  // When the cart updates, check if it's empty and inject the empty state into the drawer
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleCartUpdate = function handleCartUpdate(event) {
+      var _event$cartData;
+      var itemCount = event === null || event === void 0 || (_event$cartData = event.cartData) === null || _event$cartData === void 0 ? void 0 : _event$cartData.item_count;
+      if (itemCount !== 0) return;
+      var cartDrawerEl = document.querySelector('cart-drawer');
+      var drawerInner = cartDrawerEl === null || cartDrawerEl === void 0 ? void 0 : cartDrawerEl.querySelector('.drawer__inner');
+      if (!cartDrawerEl || !drawerInner) return;
+
+      // is-empty class drives the CSS (hides header/footer, shows empty div)
+      cartDrawerEl.classList.add('is-empty');
+
+      // Ensure the outer empty wrapper exists
+      var innerEmpty = drawerInner.querySelector('.drawer__inner-empty');
+      if (!innerEmpty) {
+        innerEmpty = document.createElement('div');
+        innerEmpty.className = 'drawer__inner-empty';
+        drawerInner.insertBefore(innerEmpty, drawerInner.firstChild);
+      }
+
+      // Inject the full empty-content block if not already present
+      if (!innerEmpty.querySelector('.cart-drawer__empty-content')) {
+        innerEmpty.innerHTML = "\n        <div class=\"cart-drawer__warnings center cart-drawer__warnings--has-collection\">\n          <div class=\"cart-drawer__empty-content\">\n            <h2 class=\"cart__empty-text\">Your cart is empty</h2>\n            <button class=\"drawer__close\" type=\"button\" onclick=\"this.closest('cart-drawer').close()\" aria-label=\"Close\">\n              <span class=\"svg-wrapper\">\n                <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" class=\"icon icon-close\" viewBox=\"0 0 18 17\">\n                  <path fill=\"currentColor\" d=\"M.865 15.978a.5.5 0 0 0 .707.707l7.433-7.431 7.579 7.282a.501.501 0 0 0 .846-.37.5.5 0 0 0-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 1 0-.707-.708L8.991 7.853 1.413.573a.5.5 0 1 0-.693.72l7.563 7.268z\"></path>\n                </svg>\n              </span>\n            </button>\n            <a href=\"/collections/all\" class=\"button\">Continue shopping</a>\n            <p class=\"cart__login-title h3\">Have an account?</p>\n            <p class=\"cart__login-paragraph\">\n              <a href=\"/customer_authentication/redirect?locale=en&region_country=US\" class=\"link underlined-link\">Log in</a> to check out faster.\n            </p>\n          </div>\n        </div>\n        ";
+      }
+    };
+
+    // subscribe/publish are plain script globals, not on window
+    var sub = typeof subscribe !== 'undefined' && typeof PUB_SUB_EVENTS !== 'undefined' ? subscribe(PUB_SUB_EVENTS.cartUpdate, handleCartUpdate) : null;
+    return function () {
+      if (typeof sub === 'function') sub();
+    };
+  }, []);
+
   // Sync React state with browser-restored checkbox state on mount
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var tcgCheckbox = document.querySelector('input[type="checkbox"]');

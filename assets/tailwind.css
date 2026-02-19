@@ -13,6 +13,10 @@
 .tw-m-0 {
     margin: 0px
 }
+.tw-mx-3 {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem
+}
 .tw-mx-auto {
     margin-left: auto;
     margin-right: auto
@@ -24,14 +28,6 @@
 .tw-my-2 {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem
-}
-.tw-mx-2 {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem
-}
-.tw-mx-3 {
-    margin-left: 0.75rem;
-    margin-right: 0.75rem
 }
 .\!tw-mb-2 {
     margin-bottom: 0.5rem !important
@@ -54,6 +50,12 @@
 .tw-mb-3 {
     margin-bottom: 0.75rem
 }
+.tw-mb-4 {
+    margin-bottom: 1rem
+}
+.tw-ms-2 {
+    margin-inline-start: 0.5rem
+}
 .tw-mt-2 {
     margin-top: 0.5rem
 }
@@ -65,12 +67,6 @@
 }
 .tw-mt-\[4rem\] {
     margin-top: 4rem
-}
-.tw-mb-4 {
-    margin-bottom: 1rem
-}
-.tw-ms-2 {
-    margin-inline-start: 0.5rem
 }
 .tw-block {
     display: block
@@ -137,9 +133,6 @@
 .tw-flex-col {
     flex-direction: column
 }
-.tw-flex-wrap {
-    flex-wrap: wrap
-}
 .tw-items-center {
     align-items: center
 }
@@ -164,14 +157,14 @@
 .tw-overflow-hidden {
     overflow: hidden
 }
+.tw-rounded {
+    border-radius: 0.25rem
+}
 .tw-rounded-\[8px\] {
     border-radius: 8px
 }
 .tw-rounded-full {
     border-radius: 9999px
-}
-.tw-rounded {
-    border-radius: 0.25rem
 }
 .tw-border {
     border-width: 1px
@@ -274,24 +267,6 @@
 .tw-pt-\[5px\] {
     padding-top: 5px
 }
-.tw-ps-2 {
-    padding-inline-start: 0.5rem
-}
-.tw-ps-4 {
-    padding-inline-start: 1rem
-}
-.tw-ps-\[1rem\] {
-    padding-inline-start: 1rem
-}
-.tw-ps-\[2rem\] {
-    padding-inline-start: 2rem
-}
-.tw-ps-\[4rem\] {
-    padding-inline-start: 4rem
-}
-.tw-ps-\[3rem\] {
-    padding-inline-start: 3rem
-}
 .tw-text-center {
     text-align: center
 }
@@ -385,6 +360,10 @@
 .tw-tracking-\[2px\] {
     letter-spacing: 2px
 }
+.tw-text-\[\#0000ef\] {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 239 / var(--tw-text-opacity, 1))
+}
 .tw-text-\[\#000\] {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity, 1))
@@ -397,21 +376,13 @@
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity, 1))
 }
-.tw-text-blue-500 {
+.tw-text-red-600 {
     --tw-text-opacity: 1;
-    color: rgb(59 130 246 / var(--tw-text-opacity, 1))
+    color: rgb(220 38 38 / var(--tw-text-opacity, 1))
 }
 .tw-text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1))
-}
-.tw-text-\[\#0000ef\] {
-    --tw-text-opacity: 1;
-    color: rgb(0 0 239 / var(--tw-text-opacity, 1))
-}
-.tw-text-red-600 {
-    --tw-text-opacity: 1;
-    color: rgb(220 38 38 / var(--tw-text-opacity, 1))
 }
 .tw-opacity-25 {
     opacity: 0.25
