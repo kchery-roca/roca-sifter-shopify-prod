@@ -267,6 +267,9 @@
 .tw-pt-\[5px\] {
     padding-top: 5px
 }
+.tw-pb-0 {
+    padding-bottom: 0px
+}
 .tw-text-center {
     text-align: center
 }
@@ -383,6 +386,10 @@
 .tw-text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+}
+.tw-text-blue-500 {
+    --tw-text-opacity: 1;
+    color: rgb(59 130 246 / var(--tw-text-opacity, 1))
 }
 .tw-opacity-25 {
     opacity: 0.25

@@ -293,12 +293,22 @@
         {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
+          {%- liquid
+            assign filtered_item_count = 0
+            for item in cart.items
+              if item.product.handle != 'service-contract'
+                assign filtered_item_count = filtered_item_count | plus: item.quantity
+              endif
+            endfor
+          -%}
+          {%- if filtered_item_count > 0 -%}
+            <div class="cart-count-bubble">
+              {%- if filtered_item_count < 100 -%}
+                <span aria-hidden="true">{{ filtered_item_count }}</span>
+              {%- endif -%}
+              <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: filtered_item_count }}</span>
+            </div>
+          {%- endif -%}
         {%- endif -%}
       </a>
     </div>

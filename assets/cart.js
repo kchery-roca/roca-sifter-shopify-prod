@@ -120,7 +120,44 @@ class CartBundleRemoveButton extends HTMLElement {
   }
 }
 
+
 customElements.define('cart-bundle-remove-button', CartBundleRemoveButton);
+
+class CartClearButton extends HTMLElement {
+  constructor() {
+    super();
+    this.addEventListener('click', async (event) => {
+      event.preventDefault();
+      try {
+        const response = await fetch('/cart/clear.js', { method: 'POST' });
+        const clearedCart = await response.json();
+
+        // 1. Update cart icon bubble
+        const iconBubbleResponse = await fetch(`${routes.cart_url}?section_id=cart-icon-bubble`);
+        const iconBubbleHtml = await iconBubbleResponse.text();
+        const iconBubbleDoc = new DOMParser().parseFromString(iconBubbleHtml, 'text/html');
+        const newIconBubble = iconBubbleDoc.querySelector('.shopify-section');
+        const currentIconBubble = document.querySelector('#cart-icon-bubble');
+        if (currentIconBubble && newIconBubble) {
+          currentIconBubble.innerHTML = newIconBubble.innerHTML;
+        }
+
+        // 2. Re-render cart drawer
+        const cartItems = document.querySelector('cart-drawer-items');
+        if (cartItems) await cartItems.onCartUpdate();
+
+        // 3. Publish cart update event
+        if (typeof publish !== 'undefined' && typeof PUB_SUB_EVENTS !== 'undefined') {
+          publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-clear', cartData: clearedCart });
+        }
+      } catch (error) {
+        console.error('Error clearing cart:', error);
+      }
+    });
+  }
+}
+
+customElements.define('cart-clear-button', CartClearButton);
 
 class CartItems extends HTMLElement {
   constructor() {

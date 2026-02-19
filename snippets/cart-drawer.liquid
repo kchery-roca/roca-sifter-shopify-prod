@@ -88,6 +88,7 @@
           <div id="CartDrawer-CartItems" class="drawer__contents js-contents">
             {%- if cart != empty -%}
               <div class="drawer__cart-items-wrapper">
+
                 <table class="cart-items" role="table">
                   <thead role="rowgroup">
                     <tr role="row">
@@ -96,7 +97,7 @@
                       </th>
                       <th
                         id="CartDrawer-ColumnProduct"
-                        class="caption-with-letter-spacing"
+                        class="caption-with-letter-spacing !tw-pb-0"
                         scope="col"
                         role="columnheader"
                       >
@@ -104,17 +105,28 @@
                       </th>
                       <th
                         id="CartDrawer-ColumnTotal"
-                        class="right caption-with-letter-spacing"
+                        class="right caption-with-letter-spacing !tw-pb-0"
                         scope="col"
                         role="columnheader"
                       >
-                        {{ 'sections.cart.headings.total' | t }}
+                        <div class="flex">
+                          <span>{{ 'sections.cart.headings.total' | t }}</span>
+
+                          <cart-clear-button>
+                            
+                            <button type="button" class="button button--tertiary cart-clear-button tw-text-blue-500">
+                             Clear Cart
+                            </button>
+                          </cart-clear-button>
+                        </div>
                       </th>
                       <th id="CartDrawer-ColumnQuantity" role="columnheader">
                         <span class="visually-hidden">{{ 'sections.cart.headings.quantity' | t }}</span>
                       </th>
                     </tr>
                   </thead>
+
+
 
                   <tbody role="rowgroup">
                     {%- for item in cart.items -%}
