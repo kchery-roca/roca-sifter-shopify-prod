@@ -31977,19 +31977,49 @@ var OrderConstraintModal = function OrderConstraintModal(_ref) {
       return setIsModalOpen(false);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
-    className: "tw-fixed tw-inset-0 tw-flex tw-items-center tw-justify-center tw-p-4 !tw-bg-black-500"
+    className: "tw-fixed tw-inset-0 tw-flex tw-items-center tw-justify-center tw-p-4 !tw-bg-[#0000009e]"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_0__.Dialog.Panel, {
-    className: "tw-bg-white tw-rounded-lg tw-p-6 tw-max-w-md tw-w-full tw-shadow-xl"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_0__.Dialog.Title, {
-    className: "tw-text-lg tw-font-bold tw-mb-2"
-  }, "Your Modal Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
-    className: "tw-text-base tw-mb-4"
-  }, "Your modal content goes here."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
+    className: "tw-bg-white tw-rounded-lg tw-p-6  tw-w-full md:!tw-w-[50%] tw-shadow-xl"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "tw-text-right tw-flex tw-justify-end"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     onClick: function onClick() {
       return setIsModalOpen(false);
     },
-    className: "tw-bg-[#0835DB] tw-text-white tw-px-4 tw-py-2 tw-rounded-lg"
-  }, "Close"))));
+    className: "tw-bg-white tw-border-none tw-font-bold tw-text-black tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", {
+    d: "M18 6L6 18",
+    stroke: "black",
+    "stroke-width": "2",
+    "stroke-linecap": "round"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", {
+    d: "M6 6L18 18",
+    stroke: "black",
+    "stroke-width": "2",
+    "stroke-linecap": "round"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", null, "Close"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_0__.Dialog.Title, {
+    className: "tw-text-lg tw-leading-[157%] tw-tracking-[-0.16px] tw-font-bold tw-mb-2"
+  }, "Maximum Quantity Reached"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4"
+  }, "You can add up to ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+    className: "tw-font-bold"
+  }, "9 sifters"), " to your cart at a time."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4"
+  }, "If you\u2019re looking to purchase ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+    className: "tw-font-bold"
+  }, "10 or more"), ", we offer better pricing through our sales team. Please use the link below to chat with sales and get the best deal."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+    href: "https://tcgplayer-5.tcgplayer.com/book-a-roca-demo-meeting",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
+    className: "tw-bg-[#0735dc] tw-border-none tw-text-white  tw-py-[5%] md:tw-py-[2%] tw-rounded-lg tw-w-full md:tw-w-auto tw-px-4 tw-py-2"
+  }, "Chat with Sales")))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderConstraintModal);
 

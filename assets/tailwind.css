@@ -1,6 +1,17 @@
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/css/tailwind.css ***!
   \******************************************************************************************************************/
+.tw-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0
+}
 .tw-fixed {
     position: fixed
 }
@@ -145,6 +156,9 @@
 .tw-items-center {
     align-items: center
 }
+.tw-justify-end {
+    justify-content: flex-end
+}
 .tw-justify-center {
     justify-content: center
 }
@@ -232,6 +246,24 @@
 .tw-bg-black\/50 {
     background-color: rgb(0 0 0 / 0.5)
 }
+.\!tw-bg-\[gainsboro\] {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(220 220 220 / var(--tw-bg-opacity, 1)) !important
+}
+.\!tw-bg-black {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1)) !important
+}
+.\!tw-bg-\[\#0000009e\] {
+    background-color: #0000009e !important
+}
+.tw-bg-\[\#0735dc\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(7 53 220 / var(--tw-bg-opacity, 1))
+}
+.tw-bg-none {
+    background-image: none
+}
 .\!tw-p-0 {
     padding: 0px !important
 }
@@ -279,6 +311,14 @@
     padding-top: 8rem;
     padding-bottom: 8rem
 }
+.tw-px-\[5\%\] {
+    padding-left: 5%;
+    padding-right: 5%
+}
+.tw-py-\[5\%\] {
+    padding-top: 5%;
+    padding-bottom: 5%
+}
 .\!tw-pb-0 {
     padding-bottom: 0px !important
 }
@@ -290,6 +330,9 @@
 }
 .tw-text-center {
     text-align: center
+}
+.tw-text-right {
+    text-align: right
 }
 .tw-font-sans {
     font-family: Inter, sans-serif
@@ -333,6 +376,9 @@
 .tw-text-xs {
     font-size: 12.5px
 }
+.tw-text-\[16px\] {
+    font-size: 16px
+}
 .tw-font-\[400\] {
     font-weight: 400
 }
@@ -357,6 +403,9 @@
 .tw-leading-\[20px\] {
     line-height: 20px
 }
+.tw-leading-\[157\%\] {
+    line-height: 157%
+}
 .\!tw-tracking-\[0\.14px\] {
     letter-spacing: 0.14px !important
 }
@@ -380,6 +429,9 @@
 }
 .tw-tracking-\[2px\] {
     letter-spacing: 2px
+}
+.tw-tracking-\[-0\.16px\] {
+    letter-spacing: -0.16px
 }
 .tw-text-\[\#0000ef\] {
     --tw-text-opacity: 1;
@@ -483,6 +535,27 @@
     .md\:tw-block {
         display: block
     }
+    .md\:\!tw-w-\[50\%\] {
+        width: 50% !important
+    }
+    .md\:tw-w-full {
+        width: 100%
+    }
+    .md\:tw-w-auto {
+        width: auto
+    }
+    .md\:tw-max-w-md {
+        max-width: 28rem
+    }
+    .md\:tw-max-w-lg {
+        max-width: 32rem
+    }
+    .md\:tw-max-w-xl {
+        max-width: 36rem
+    }
+    .md\:\!tw-max-w-xl {
+        max-width: 36rem !important
+    }
     .md\:tw-justify-center {
         justify-content: center
     }
@@ -491,6 +564,14 @@
     }
     .md\:tw-p-0 {
         padding: 0px
+    }
+    .md\:tw-py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem
+    }
+    .md\:tw-py-\[2\%\] {
+        padding-top: 2%;
+        padding-bottom: 2%
     }
     .md\:tw-text-center {
         text-align: center
