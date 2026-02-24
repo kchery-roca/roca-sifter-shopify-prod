@@ -32061,23 +32061,19 @@ var OrderConstraintModal = function OrderConstraintModal(_ref) {
     className: "tw-text-lg tw-leading-[157%] tw-tracking-[-0.16px] tw-font-bold tw-mb-2"
   }, "Maximum Quantity Reached"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4"
-  }, "You can add up to ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+  }, "You can purchase up to ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
     className: "tw-font-bold"
-  }, "9 sifters"), " to your cart at a time."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+  }, "9 Roca Sifters per order")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4"
-  }, "Based on what you have in your cart, you can only add", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+  }, "Need ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
     className: "tw-font-bold"
-  }, remainingSifters, " ", remainingSifters === 1 ? 'more sifter' : 'more sifters'), "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
-    className: "tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4"
-  }, "If you\u2019re looking to purchase ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
-    className: "tw-font-bold"
-  }, "10 or more"), ", we offer better pricing through our sales team. Please use the link below to chat with sales and get the best deal."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
+  }, "10 or more"), "? Our Sales team can help with volume pricing and bulk orders. Connect with us to get the best option for your business."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("a", {
     href: "https://tcgplayer-5.tcgplayer.com/book-a-roca-demo-meeting",
     target: "_blank",
     rel: "noopener noreferrer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
     className: "tw-bg-[#0735dc] tw-border-none tw-text-white  tw-py-[5%] md:tw-py-[2%] tw-rounded-lg tw-w-full md:tw-w-auto tw-px-4 tw-py-2"
-  }, "Chat with Sales")))));
+  }, "Contact Sales")))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderConstraintModal);
 
