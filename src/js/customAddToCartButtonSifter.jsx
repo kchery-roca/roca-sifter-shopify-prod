@@ -301,7 +301,7 @@ const CustomAddToCartButtonSifter = () => {
         >
           By clicking order I agree to the Terms and Conditions and acknowledge the
           <a
-            href="https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy"
+            href="https://mktg-assets.tcgplayer.com/web/seller/seller-support/Roca/Roca-Sifter-terms-and-conditions.pdf"
             target="_blank"
             className="tw-text-[#0000ef] tw-ms-2"
           >
