@@ -31941,8 +31941,12 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "acceptTermsAndConditions",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
-  }, "By clicking order I agree to the Terms and Conditions and acknowledge the", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "By clicking order I agree to the ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://mktg-assets.tcgplayer.com/web/seller/seller-support/Roca/Roca-Sifter-terms-and-conditions.pdf",
+    target: "_blank",
+    className: "tw-text-[#0000ef] tw-ms-2"
+  }, "Terms and Conditions"), " and acknowledge the", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "https://help.tcgplayer.com/hc/en-us/articles/11736500567959-TCGplayer-Privacy-Policy",
     target: "_blank",
     className: "tw-text-[#0000ef] tw-ms-2"
   }, "Privacy Policy"))), validationError && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
