@@ -1,17 +1,6 @@
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/css/tailwind.css ***!
   \******************************************************************************************************************/
-.tw-sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0
-}
 .tw-fixed {
     position: fixed
 }
@@ -127,9 +116,6 @@
 .tw-min-w-\[120px\] {
     min-width: 120px
 }
-.tw-max-w-md {
-    max-width: 28rem
-}
 @keyframes tw-spin {
     to {
         transform: rotate(360deg)
@@ -211,6 +197,13 @@
     --tw-border-opacity: 1;
     border-color: rgb(209 213 219 / var(--tw-border-opacity, 1))
 }
+.\!tw-bg-\[\#0000009e\] {
+    background-color: #0000009e !important
+}
+.tw-bg-\[\#0735dc\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(7 53 220 / var(--tw-bg-opacity, 1))
+}
 .tw-bg-\[\#0835DB\] {
     --tw-bg-opacity: 1;
     background-color: rgb(8 53 219 / var(--tw-bg-opacity, 1))
@@ -242,27 +235,6 @@
 .tw-bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
-}
-.tw-bg-black\/50 {
-    background-color: rgb(0 0 0 / 0.5)
-}
-.\!tw-bg-\[gainsboro\] {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(220 220 220 / var(--tw-bg-opacity, 1)) !important
-}
-.\!tw-bg-black {
-    --tw-bg-opacity: 1 !important;
-    background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1)) !important
-}
-.\!tw-bg-\[\#0000009e\] {
-    background-color: #0000009e !important
-}
-.tw-bg-\[\#0735dc\] {
-    --tw-bg-opacity: 1;
-    background-color: rgb(7 53 220 / var(--tw-bg-opacity, 1))
-}
-.tw-bg-none {
-    background-image: none
 }
 .\!tw-p-0 {
     padding: 0px !important
@@ -303,6 +275,10 @@
     padding-top: 2%;
     padding-bottom: 2%
 }
+.tw-py-\[5\%\] {
+    padding-top: 5%;
+    padding-bottom: 5%
+}
 .tw-py-\[8px\] {
     padding-top: 8px;
     padding-bottom: 8px
@@ -310,14 +286,6 @@
 .tw-py-\[8rem\] {
     padding-top: 8rem;
     padding-bottom: 8rem
-}
-.tw-px-\[5\%\] {
-    padding-left: 5%;
-    padding-right: 5%
-}
-.tw-py-\[5\%\] {
-    padding-top: 5%;
-    padding-bottom: 5%
 }
 .\!tw-pb-0 {
     padding-bottom: 0px !important
@@ -358,6 +326,9 @@
 .tw-text-\[15px\] {
     font-size: 15px
 }
+.tw-text-\[16px\] {
+    font-size: 16px
+}
 .tw-text-\[20px\] {
     font-size: 20px
 }
@@ -375,9 +346,6 @@
 }
 .tw-text-xs {
     font-size: 12.5px
-}
-.tw-text-\[16px\] {
-    font-size: 16px
 }
 .tw-font-\[400\] {
     font-weight: 400
@@ -400,17 +368,20 @@
 .tw-leading-\[155\%\] {
     line-height: 155%
 }
-.tw-leading-\[20px\] {
-    line-height: 20px
-}
 .tw-leading-\[157\%\] {
     line-height: 157%
+}
+.tw-leading-\[20px\] {
+    line-height: 20px
 }
 .\!tw-tracking-\[0\.14px\] {
     letter-spacing: 0.14px !important
 }
 .tw-tracking-\[-0\.15px\] {
     letter-spacing: -0.15px
+}
+.tw-tracking-\[-0\.16px\] {
+    letter-spacing: -0.16px
 }
 .tw-tracking-\[-0\.34px\] {
     letter-spacing: -0.34px
@@ -429,9 +400,6 @@
 }
 .tw-tracking-\[2px\] {
     letter-spacing: 2px
-}
-.tw-tracking-\[-0\.16px\] {
-    letter-spacing: -0.16px
 }
 .tw-text-\[\#0000ef\] {
     --tw-text-opacity: 1;
@@ -538,23 +506,8 @@
     .md\:\!tw-w-\[50\%\] {
         width: 50% !important
     }
-    .md\:tw-w-full {
-        width: 100%
-    }
     .md\:tw-w-auto {
         width: auto
-    }
-    .md\:tw-max-w-md {
-        max-width: 28rem
-    }
-    .md\:tw-max-w-lg {
-        max-width: 32rem
-    }
-    .md\:tw-max-w-xl {
-        max-width: 36rem
-    }
-    .md\:\!tw-max-w-xl {
-        max-width: 36rem !important
     }
     .md\:tw-justify-center {
         justify-content: center
@@ -564,10 +517,6 @@
     }
     .md\:tw-p-0 {
         padding: 0px
-    }
-    .md\:tw-py-2 {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem
     }
     .md\:tw-py-\[2\%\] {
         padding-top: 2%;

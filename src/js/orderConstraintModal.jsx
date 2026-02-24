@@ -1,7 +1,7 @@
 import { Dialog } from '@headlessui/react';
 import React, { useEffect } from 'react';
 
-const OrderConstraintModal = ({ isModalOpen, setIsModalOpen }) => {
+const OrderConstraintModal = ({ isModalOpen, setIsModalOpen, remainingSifters }) => {
   useEffect(() => {
     console.log('The modal is ', isModalOpen);
   }, [isModalOpen]);
@@ -36,6 +36,13 @@ const OrderConstraintModal = ({ isModalOpen, setIsModalOpen }) => {
           <p className="tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4">
             You can add up to <span className="tw-font-bold">9 sifters</span> to your cart at a
             time.
+          </p>
+          <p className="tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4">
+            Based on what you have in your cart, you can only add{' '}
+            <span className="tw-font-bold">
+              {remainingSifters} {remainingSifters === 1 ? 'more sifter' : 'more sifters'}
+            </span>
+            .
           </p>
           <p className="tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4">
             If you’re looking to purchase <span className="tw-font-bold">10 or more</span>, we offer

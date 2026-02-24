@@ -9,6 +9,7 @@ const CustomAddToCartButtonSifter = () => {
   const [quantity, setQuantity] = useState(1);
   const [validationError, setValidationError] = useState(null);
   const [isOrderConstraintModalOpen, setIsOrderConstraintModalOpen] = useState(false);
+  const [remainingSifters, setRemainingSifters] = useState(0);
 
   const openZendeskChat = () => {
     zE('messenger', 'open');
@@ -112,6 +113,17 @@ const CustomAddToCartButtonSifter = () => {
     setQuantity((prev) => Math.max(1, prev - 1));
   };
 
+  const SIFTER_LIMIT = 9;
+  const SIFTER_HANDLE = 'roca-sifter';
+
+  const getSifterCountInCart = async () => {
+    const response = await fetch('/cart.js');
+    const cart = await response.json();
+    return cart.items
+      .filter((item) => item.handle === SIFTER_HANDLE)
+      .reduce((sum, item) => sum + item.quantity, 0);
+  };
+
   const addToCart = async () => {
     // Prevent multiple clicks while loading
     if (isLoading) return;
@@ -127,6 +139,21 @@ const CustomAddToCartButtonSifter = () => {
     setValidationError(null);
     // Start loading
     setIsLoading(true);
+
+    // Check how many sifters are already in the cart before adding
+    try {
+      const currentSifterCount = await getSifterCountInCart();
+      if (currentSifterCount + quantity > SIFTER_LIMIT) {
+        setRemainingSifters(SIFTER_LIMIT - currentSifterCount);
+        setIsOrderConstraintModalOpen(true);
+        setIsLoading(false);
+        return;
+      }
+    } catch (error) {
+      console.error('Failed to fetch cart:', error);
+      setIsLoading(false);
+      return;
+    }
 
     // Generate unique serial numbers for each sifter bundle
     const serialNumbers = Array.from({ length: quantity }, () => generateSerialNumber());
@@ -308,7 +335,7 @@ const CustomAddToCartButtonSifter = () => {
           <button
             type="button"
             onClick={incrementQuantity}
-            disabled={isLoading}
+            disabled={isLoading || quantity >= SIFTER_LIMIT}
             className="tw-px-3 tw-py-2 tw-bg-gray-100 tw-border-0 hover:tw-bg-gray-200   tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
           >
             +
@@ -355,11 +382,11 @@ const CustomAddToCartButtonSifter = () => {
         </button>
         <span className="tw-text-lg tw-text-black tw-font-bold tw-pt-[5px]">{productPrice}</span>
       </div>
-      <button onClick={() => setIsOrderConstraintModalOpen(true)}>Open Modal</button>
 
       <OrderConstraintModal
         isModalOpen={isOrderConstraintModalOpen}
         setIsModalOpen={setIsOrderConstraintModalOpen}
+        remainingSifters={remainingSifters}
       />
     </div>
   );

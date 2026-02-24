@@ -31647,6 +31647,10 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     _useState10 = _slicedToArray(_useState1, 2),
     isOrderConstraintModalOpen = _useState10[0],
     setIsOrderConstraintModalOpen = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState12 = _slicedToArray(_useState11, 2),
+    remainingSifters = _useState12[0],
+    setRemainingSifters = _useState12[1];
   var openZendeskChat = function openZendeskChat() {
     zE('messenger', 'open');
   };
@@ -31723,29 +31727,81 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
       return Math.max(1, prev - 1);
     });
   };
-  var addToCart = /*#__PURE__*/function () {
+  var SIFTER_LIMIT = 9;
+  var SIFTER_HANDLE = 'roca-sifter';
+  var getSifterCountInCart = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var serialNumbers, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t;
+      var response, cart;
       return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
+        while (1) switch (_context.n) {
+          case 0:
+            _context.n = 1;
+            return fetch('/cart.js');
+          case 1:
+            response = _context.v;
+            _context.n = 2;
+            return response.json();
+          case 2:
+            cart = _context.v;
+            return _context.a(2, cart.items.filter(function (item) {
+              return item.handle === SIFTER_HANDLE;
+            }).reduce(function (sum, item) {
+              return sum + item.quantity;
+            }, 0));
+        }
+      }, _callee);
+    }));
+    return function getSifterCountInCart() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  var addToCart = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var currentSifterCount, serialNumbers, formData, response, data, sectionsResponse, sectionsData, cartDrawer, parser, drawerDoc, newDrawerInner, currentDrawerInner, bubbleDoc, bubbleSection, currentBubble, _t, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
           case 0:
             if (!isLoading) {
-              _context.n = 1;
+              _context2.n = 1;
               break;
             }
-            return _context.a(2);
+            return _context2.a(2);
           case 1:
             if (!(!isTCGPlayer || !acceptTermsAndConditions)) {
-              _context.n = 2;
+              _context2.n = 2;
               break;
             }
             setValidationError('Acknowledge you will need a seller account to operate the Roca Sifter and agree to Terms & Conditions to continue.');
-            return _context.a(2);
+            return _context2.a(2);
           case 2:
             setValidationError(null);
             // Start loading
             setIsLoading(true);
 
+            // Check how many sifters are already in the cart before adding
+            _context2.p = 3;
+            _context2.n = 4;
+            return getSifterCountInCart();
+          case 4:
+            currentSifterCount = _context2.v;
+            if (!(currentSifterCount + quantity > SIFTER_LIMIT)) {
+              _context2.n = 5;
+              break;
+            }
+            setRemainingSifters(SIFTER_LIMIT - currentSifterCount);
+            setIsOrderConstraintModalOpen(true);
+            setIsLoading(false);
+            return _context2.a(2);
+          case 5:
+            _context2.n = 7;
+            break;
+          case 6:
+            _context2.p = 6;
+            _t = _context2.v;
+            console.error('Failed to fetch cart:', _t);
+            setIsLoading(false);
+            return _context2.a(2);
+          case 7:
             // Generate unique serial numbers for each sifter bundle
             serialNumbers = Array.from({
               length: quantity
@@ -31767,8 +31823,8 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
               formData.append("items[".concat(itemIndex + 1, "][selling_plan]"), sellingPlanId);
               formData.append("items[".concat(itemIndex + 1, "][properties][Web-Serial-Number]"), webSerialNumber);
             });
-            _context.p = 3;
-            _context.n = 4;
+            _context2.p = 8;
+            _context2.n = 9;
             return fetch(window.routes.cart_add_url, {
               method: 'POST',
               headers: {
@@ -31777,28 +31833,28 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
               },
               body: formData
             });
-          case 4:
-            response = _context.v;
-            _context.n = 5;
+          case 9:
+            response = _context2.v;
+            _context2.n = 10;
             return response.json();
-          case 5:
-            data = _context.v;
+          case 10:
+            data = _context2.v;
             if (!data.status) {
-              _context.n = 6;
+              _context2.n = 11;
               break;
             }
             console.error(data.description);
             setIsLoading(false);
-            return _context.a(2);
-          case 6:
-            _context.n = 7;
+            return _context2.a(2);
+          case 11:
+            _context2.n = 12;
             return fetch("".concat(window.routes.cart_url, "?sections=cart-drawer,cart-icon-bubble"));
-          case 7:
-            sectionsResponse = _context.v;
-            _context.n = 8;
+          case 12:
+            sectionsResponse = _context2.v;
+            _context2.n = 13;
             return sectionsResponse.json();
-          case 8:
-            sectionsData = _context.v;
+          case 13:
+            sectionsData = _context2.v;
             cartDrawer = document.querySelector('cart-drawer');
             if (cartDrawer) {
               parser = new DOMParser(); // Update drawer content
@@ -31823,23 +31879,23 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
                 cartDrawer.open();
               }
             }
-            _context.n = 10;
+            _context2.n = 15;
             break;
-          case 9:
-            _context.p = 9;
-            _t = _context.v;
-            console.error('Add to cart error:', _t);
-          case 10:
-            _context.p = 10;
+          case 14:
+            _context2.p = 14;
+            _t2 = _context2.v;
+            console.error('Add to cart error:', _t2);
+          case 15:
+            _context2.p = 15;
             setIsLoading(false);
-            return _context.f(10);
-          case 11:
-            return _context.a(2);
+            return _context2.f(15);
+          case 16:
+            return _context2.a(2);
         }
-      }, _callee, null, [[3, 9, 10, 11]]);
+      }, _callee2, null, [[8, 14, 15, 16], [3, 6]]);
     }));
     return function addToCart() {
-      return _ref.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
@@ -31910,7 +31966,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     type: "button",
     onClick: incrementQuantity,
-    disabled: isLoading,
+    disabled: isLoading || quantity >= SIFTER_LIMIT,
     className: "tw-px-3 tw-py-2 tw-bg-gray-100 tw-border-0 hover:tw-bg-gray-200   tw-font-bold disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transition-colors tw-text-[20px]"
   }, "+"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-gap-4 tw-mt-2"
@@ -31937,13 +31993,10 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
   })), isLoading ? 'Processing...' : 'Order'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: "tw-text-lg tw-text-black tw-font-bold tw-pt-[5px]"
-  }, productPrice)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    onClick: function onClick() {
-      return setIsOrderConstraintModalOpen(true);
-    }
-  }, "Open Modal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_orderConstraintModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }, productPrice)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_orderConstraintModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
     isModalOpen: isOrderConstraintModalOpen,
-    setIsModalOpen: setIsOrderConstraintModalOpen
+    setIsModalOpen: setIsOrderConstraintModalOpen,
+    remainingSifters: remainingSifters
   }));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomAddToCartButtonSifter);
@@ -31967,7 +32020,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var OrderConstraintModal = function OrderConstraintModal(_ref) {
   var isModalOpen = _ref.isModalOpen,
-    setIsModalOpen = _ref.setIsModalOpen;
+    setIsModalOpen = _ref.setIsModalOpen,
+    remainingSifters = _ref.remainingSifters;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     console.log('The modal is ', isModalOpen);
   }, [isModalOpen]);
@@ -32010,6 +32064,10 @@ var OrderConstraintModal = function OrderConstraintModal(_ref) {
   }, "You can add up to ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
     className: "tw-font-bold"
   }, "9 sifters"), " to your cart at a time."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4"
+  }, "Based on what you have in your cart, you can only add", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
+    className: "tw-font-bold"
+  }, remainingSifters, " ", remainingSifters === 1 ? 'more sifter' : 'more sifters'), "."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "tw-text-base tw-text-[16px] tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-4"
   }, "If you\u2019re looking to purchase ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("span", {
     className: "tw-font-bold"
