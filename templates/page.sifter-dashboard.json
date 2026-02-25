@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "sifter-dashboard": {
+      "type": "sifter-dashboard",
+      "settings": {}
+    }
+  },
+  "order": [
+    "sifter-dashboard"
+  ]
+}

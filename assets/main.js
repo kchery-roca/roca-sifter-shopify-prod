@@ -32081,6 +32081,23 @@ var OrderConstraintModal = function OrderConstraintModal(_ref) {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderConstraintModal);
 
+/***/ },
+
+/***/ "./src/js/sifterDashBoard.jsx"
+/*!************************************!*\
+  !*** ./src/js/sifterDashBoard.jsx ***!
+  \************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var SifterDashboard = function SifterDashboard() {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Sifter Dashboard"));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SifterDashboard);
+
 /***/ }
 
 /******/ 	});
@@ -32210,6 +32227,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _customAddToCartButtonSifter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customAddToCartButtonSifter */ "./src/js/customAddToCartButtonSifter.jsx");
+/* harmony import */ var _sifterDashBoard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sifterDashBoard */ "./src/js/sifterDashBoard.jsx");
+
 
 
 
@@ -32220,6 +32239,12 @@ var el = document.getElementById('product-form-buttons-holder-react');
 if (el) {
   (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el).render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_customAddToCartButtonSifter__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 }
+document.addEventListener('DOMContentLoaded', function () {
+  var el2 = document.getElementById('sifter-dashboard');
+  if (el2) {
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el2).render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_sifterDashBoard__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }
+});
 })();
 
 /******/ })()
