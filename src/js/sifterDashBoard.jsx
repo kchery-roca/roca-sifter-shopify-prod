@@ -1,8 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import DashboardPasswordModal, {
+  getAuthCookie,
+  setAuthCookie,
+  sha256,
+  COOKIE_NAME,
+} from './dashboardPasswordModal';
 
-const STATS_URL =
-  document.getElementById('sifter-dashboard')?.dataset?.statsUrl ||
-  'https://sifter-worker-local.kchery.workers.dev/';
+const _mountEl = document.getElementById('sifter-dashboard');
+const STATS_URL = _mountEl?.dataset?.statsUrl || 'https://sifter-worker-local.kchery.workers.dev/';
+const EXPECTED_HASH = _mountEl?.dataset?.pwHash || '';
 
 const formatValue = (key, value) => {
   if (key === 'totalRevenue')
@@ -251,12 +257,24 @@ const minutesAgo = (date) => {
 };
 
 const SifterDashboard = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lastFetched, setLastFetched] = useState(null);
   const [ticker, setTicker] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
+
+  // Check cookie on mount — compare stored hash against expected hash
+  useEffect(() => {
+    const check = async () => {
+      const cookie = getAuthCookie();
+      if (cookie && EXPECTED_HASH && cookie === EXPECTED_HASH) {
+        setIsAuthenticated(true);
+      }
+    };
+    check();
+  }, []);
 
   const fetchStats = useCallback(async () => {
     setIsLoading(true);
@@ -287,6 +305,16 @@ const SifterDashboard = () => {
     const id = setInterval(() => setTicker((t) => t + 1), 30000);
     return () => clearInterval(id);
   }, []);
+
+  if (!isAuthenticated) {
+    return (
+      <DashboardPasswordModal
+        isOpen={true}
+        expectedHash={EXPECTED_HASH}
+        onSuccess={() => setIsAuthenticated(true)}
+      />
+    );
+  }
 
   return (
     <div

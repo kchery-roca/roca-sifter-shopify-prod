@@ -74,6 +74,15 @@
 .tw-mt-\[4rem\] {
     margin-top: 4rem
 }
+.tw-mb-1 {
+    margin-bottom: 0.25rem
+}
+.tw-mb-5 {
+    margin-bottom: 1.25rem
+}
+.tw-mb-6 {
+    margin-bottom: 1.5rem
+}
 .tw-block {
     display: block
 }
@@ -257,6 +266,9 @@
 .tw-p-6 {
     padding: 1.5rem
 }
+.tw-p-8 {
+    padding: 2rem
+}
 .\!tw-px-0 {
     padding-left: 0px !important;
     padding-right: 0px !important
@@ -353,6 +365,12 @@
 .tw-text-xs {
     font-size: 12.5px
 }
+.tw-text-sm {
+    font-size: 15px
+}
+.tw-text-xl {
+    font-size: 34px
+}
 .tw-font-\[400\] {
     font-weight: 400
 }
@@ -435,6 +453,10 @@
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1))
 }
+.tw-text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity, 1))
+}
 .tw-opacity-25 {
     opacity: 0.25
 }
@@ -514,6 +536,9 @@
     }
     .md\:tw-w-auto {
         width: auto
+    }
+    .md\:\!tw-w-\[420px\] {
+        width: 420px !important
     }
     .md\:tw-justify-center {
         justify-content: center
