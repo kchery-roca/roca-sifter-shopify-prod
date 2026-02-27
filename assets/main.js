@@ -32015,6 +32015,323 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
 
 /***/ },
 
+/***/ "./src/js/dashboardPasswordModal.jsx"
+/*!*******************************************!*\
+  !*** ./src/js/dashboardPasswordModal.jsx ***!
+  \*******************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   COOKIE_NAME: () => (/* binding */ COOKIE_NAME),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   getAuthCookie: () => (/* binding */ getAuthCookie),
+/* harmony export */   setAuthCookie: () => (/* binding */ setAuthCookie),
+/* harmony export */   sha256: () => (/* binding */ sha256)
+/* harmony export */ });
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+var COOKIE_NAME = 'sifter_dash_auth';
+var COOKIE_MAX_AGE = 30 * 24 * 60 * 60; // 30 days
+
+var sha256 = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(message) {
+    var msgBuffer, hashBuffer, hashArray;
+    return _regenerator().w(function (_context) {
+      while (1) switch (_context.n) {
+        case 0:
+          msgBuffer = new TextEncoder().encode(message);
+          _context.n = 1;
+          return crypto.subtle.digest('SHA-256', msgBuffer);
+        case 1:
+          hashBuffer = _context.v;
+          hashArray = Array.from(new Uint8Array(hashBuffer));
+          return _context.a(2, hashArray.map(function (b) {
+            return b.toString(16).padStart(2, '0');
+          }).join(''));
+      }
+    }, _callee);
+  }));
+  return function sha256(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+var getAuthCookie = function getAuthCookie() {
+  var _document$cookie$spli;
+  return (_document$cookie$spli = document.cookie.split('; ').find(function (row) {
+    return row.startsWith("".concat(COOKIE_NAME, "="));
+  })) === null || _document$cookie$spli === void 0 ? void 0 : _document$cookie$spli.split('=')[1];
+};
+var setAuthCookie = function setAuthCookie(hash) {
+  document.cookie = "".concat(COOKIE_NAME, "=").concat(hash, "; max-age=").concat(COOKIE_MAX_AGE, "; SameSite=Strict; Secure; path=/");
+};
+var DashboardPasswordModal = function DashboardPasswordModal(_ref2) {
+  var isOpen = _ref2.isOpen,
+    expectedHash = _ref2.expectedHash,
+    onSuccess = _ref2.onSuccess;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    password = _useState2[0],
+    setPassword = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    error = _useState4[0],
+    setError = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    isChecking = _useState6[0],
+    setIsChecking = _useState6[1];
+  var inputRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (isOpen) setTimeout(function () {
+      var _inputRef$current;
+      return (_inputRef$current = inputRef.current) === null || _inputRef$current === void 0 ? void 0 : _inputRef$current.focus();
+    }, 50);
+  }, [isOpen]);
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
+      var hash;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            e.preventDefault();
+            if (!(!password || isChecking)) {
+              _context2.n = 1;
+              break;
+            }
+            return _context2.a(2);
+          case 1:
+            setIsChecking(true);
+            setError(false);
+            _context2.p = 2;
+            _context2.n = 3;
+            return sha256(password);
+          case 3:
+            hash = _context2.v;
+            if (hash === expectedHash) {
+              setAuthCookie(hash);
+              onSuccess();
+            } else {
+              setError(true);
+              setPassword('');
+              setTimeout(function () {
+                var _inputRef$current2;
+                return (_inputRef$current2 = inputRef.current) === null || _inputRef$current2 === void 0 ? void 0 : _inputRef$current2.focus();
+              }, 50);
+            }
+          case 4:
+            _context2.p = 4;
+            setIsChecking(false);
+            return _context2.f(4);
+          case 5:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[2,, 4, 5]]);
+    }));
+    return function handleSubmit(_x2) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_0__.Dialog, {
+    open: isOpen,
+    onClose: function onClose() {}
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "tw-fixed tw-inset-0 tw-flex tw-items-center tw-justify-center tw-p-4 !tw-bg-[#0000009e]"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_0__.Dialog.Panel, {
+    className: "tw-bg-white tw-rounded-lg tw-p-8 tw-w-full md:!tw-w-[420px] tw-shadow-xl"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "tw-flex tw-justify-center tw-mb-5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    style: {
+      background: '#0835DB14',
+      borderRadius: '50%',
+      padding: '18px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "#0835DB",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      width: '34px',
+      height: '34px'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("rect", {
+    x: "3",
+    y: "11",
+    width: "18",
+    height: "11",
+    rx: "2",
+    ry: "2"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("path", {
+    d: "M7 11V7a5 5 0 0 1 10 0v4"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_0__.Dialog.Title, {
+    className: "tw-text-xl tw-leading-[157%] tw-tracking-[-0.16px] tw-font-bold tw-mb-1 tw-text-center"
+  }, "Dashboard Access"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    className: "tw-text-sm tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-6 tw-text-center tw-text-gray-400"
+  }, "Enter the password to view Sifter analytics."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("form", {
+    onSubmit: handleSubmit,
+    className: "tw-flex tw-flex-col tw-gap-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", {
+    ref: inputRef,
+    type: "password",
+    value: password,
+    onChange: function onChange(e) {
+      setPassword(e.target.value);
+      setError(false);
+    },
+    placeholder: "Password",
+    autoComplete: "current-password",
+    style: {
+      width: '100%',
+      border: "1.5px solid ".concat(error ? '#ef4444' : '#d1d5db'),
+      borderRadius: '10px',
+      padding: '12px 16px',
+      fontSize: '15px',
+      outline: 'none',
+      background: error ? '#fef2f2' : '#fff',
+      boxSizing: 'border-box',
+      transition: 'border-color 0.2s'
+    },
+    onFocus: function onFocus(e) {
+      if (!error) e.target.style.borderColor = '#0835DB';
+    },
+    onBlur: function onBlur(e) {
+      if (!error) e.target.style.borderColor = '#d1d5db';
+    }
+  }), error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+    style: {
+      color: '#dc2626',
+      fontSize: '13px',
+      textAlign: 'center',
+      margin: '0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '6px'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      width: '14px',
+      height: '14px',
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "10"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "12",
+    y1: "8",
+    x2: "12",
+    y2: "12"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "12",
+    y1: "16",
+    x2: "12.01",
+    y2: "16"
+  })), "Incorrect password. Please try again."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
+    type: "submit",
+    disabled: !password || isChecking,
+    style: {
+      background: !password || isChecking ? '#e5e7eb' : '#0835DB',
+      color: !password || isChecking ? '#9ca3af' : '#fff',
+      border: 'none',
+      borderRadius: '10px',
+      padding: '13px',
+      width: '100%',
+      fontWeight: 600,
+      fontSize: '15px',
+      cursor: !password || isChecking ? 'not-allowed' : 'pointer',
+      letterSpacing: '0.3px',
+      transition: 'background 0.2s',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '8px'
+    }
+  }, isChecking ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement((react__WEBPACK_IMPORTED_MODULE_1___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      width: '16px',
+      height: '16px',
+      animation: 'sifter-spin 0.6s linear infinite'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "12",
+    y1: "2",
+    x2: "12",
+    y2: "6"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "12",
+    y1: "18",
+    x2: "12",
+    y2: "22"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "4.93",
+    y1: "4.93",
+    x2: "7.76",
+    y2: "7.76"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "16.24",
+    y1: "16.24",
+    x2: "19.07",
+    y2: "19.07"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "2",
+    y1: "12",
+    x2: "6",
+    y2: "12"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "18",
+    y1: "12",
+    x2: "22",
+    y2: "12"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "4.93",
+    y1: "19.07",
+    x2: "7.76",
+    y2: "16.24"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("line", {
+    x1: "16.24",
+    y1: "7.76",
+    x2: "19.07",
+    y2: "4.93"
+  })), "Verifying\u2026") : 'Unlock')))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DashboardPasswordModal);
+
+/***/ },
+
 /***/ "./src/js/orderConstraintModal.jsx"
 /*!*****************************************!*\
   !*** ./src/js/orderConstraintModal.jsx ***!
@@ -32088,6 +32405,542 @@ var OrderConstraintModal = function OrderConstraintModal(_ref) {
   }, "Contact Sales")))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderConstraintModal);
+
+/***/ },
+
+/***/ "./src/js/sifterDashBoard.jsx"
+/*!************************************!*\
+  !*** ./src/js/sifterDashBoard.jsx ***!
+  \************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _dashboardPasswordModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboardPasswordModal */ "./src/js/dashboardPasswordModal.jsx");
+var _mountEl$dataset, _mountEl$dataset2;
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+var _mountEl = document.getElementById('sifter-dashboard');
+var STATS_URL = (_mountEl === null || _mountEl === void 0 || (_mountEl$dataset = _mountEl.dataset) === null || _mountEl$dataset === void 0 ? void 0 : _mountEl$dataset.statsUrl) || 'https://sifter-worker-local.kchery.workers.dev/';
+var EXPECTED_HASH = (_mountEl === null || _mountEl === void 0 || (_mountEl$dataset2 = _mountEl.dataset) === null || _mountEl$dataset2 === void 0 ? void 0 : _mountEl$dataset2.pwHash) || '';
+var formatValue = function formatValue(key, value) {
+  if (key === 'totalRevenue') return "$".concat(parseFloat(value).toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }));
+  if (key === 'siftersPerOrder') return parseFloat(value).toFixed(2);
+  return parseInt(value, 10).toLocaleString('en-US');
+};
+var CARD_CONFIG = [{
+  key: 'totalOrders',
+  label: 'Total Orders',
+  icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    className: "tw-w-7 tw-h-7"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("line", {
+    x1: "3",
+    y1: "6",
+    x2: "21",
+    y2: "6"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M16 10a4 4 0 0 1-8 0"
+  })),
+  accent: '#0835DB',
+  gradient: 'linear-gradient(135deg, #0835DB22 0%, #0835DB08 100%)'
+}, {
+  key: 'totalRevenue',
+  label: 'Total Revenue',
+  icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    className: "tw-w-7 tw-h-7"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("line", {
+    x1: "12",
+    y1: "1",
+    x2: "12",
+    y2: "23"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+  })),
+  accent: '#10b981',
+  gradient: 'linear-gradient(135deg, #10b98122 0%, #10b98108 100%)'
+}, {
+  key: 'totalSifters',
+  label: 'Total Sifters',
+  icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    className: "tw-w-7 tw-h-7"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("rect", {
+    x: "2",
+    y: "3",
+    width: "20",
+    height: "14",
+    rx: "2",
+    ry: "2"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("line", {
+    x1: "8",
+    y1: "21",
+    x2: "16",
+    y2: "21"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("line", {
+    x1: "12",
+    y1: "17",
+    x2: "12",
+    y2: "21"
+  })),
+  accent: '#8b5cf6',
+  gradient: 'linear-gradient(135deg, #8b5cf622 0%, #8b5cf608 100%)'
+}, {
+  key: 'siftersPerOrder',
+  label: 'Sifters / Order',
+  icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    className: "tw-w-7 tw-h-7"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("polyline", {
+    points: "22 12 18 12 15 21 9 3 6 12 2 12"
+  })),
+  accent: '#f59e0b',
+  gradient: 'linear-gradient(135deg, #f59e0b22 0%, #f59e0b08 100%)'
+}];
+var useCountUp = function useCountUp(target) {
+  var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1200;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(target),
+    _useState2 = _slicedToArray(_useState, 2),
+    display = _useState2[0],
+    setDisplay = _useState2[1];
+  var prevRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(target);
+  var rafRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var start = prevRef.current;
+    var end = parseFloat(target);
+    if (isNaN(end) || start === end) {
+      setDisplay(end);
+      prevRef.current = end;
+      return;
+    }
+    var startTime = performance.now();
+    var _animate = function animate(now) {
+      var elapsed = now - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = start + (end - start) * eased;
+      setDisplay(current);
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(_animate);
+      } else {
+        setDisplay(end);
+        prevRef.current = end;
+      }
+    };
+    rafRef.current = requestAnimationFrame(_animate);
+    return function () {
+      return cancelAnimationFrame(rafRef.current);
+    };
+  }, [target, duration]);
+  return display;
+};
+var StatCard = function StatCard(_ref) {
+  var config = _ref.config,
+    rawValue = _ref.rawValue,
+    isLoading = _ref.isLoading;
+  var numericTarget = isLoading ? 0 : parseFloat(rawValue) || 0;
+  var animated = useCountUp(numericTarget);
+  var formatAnimated = function formatAnimated(key, val) {
+    if (key === 'totalRevenue') return "$".concat(val.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }));
+    if (key === 'siftersPerOrder') return val.toFixed(2);
+    return Math.round(val).toLocaleString('en-US');
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      background: config.gradient,
+      border: "1px solid ".concat(config.accent, "33"),
+      borderRadius: '16px',
+      padding: '28px 24px',
+      transition: 'transform 0.2s, box-shadow 0.2s',
+      cursor: 'default',
+      position: 'relative',
+      overflow: 'hidden'
+    },
+    onMouseEnter: function onMouseEnter(e) {
+      e.currentTarget.style.transform = 'translateY(-4px)';
+      e.currentTarget.style.boxShadow = "0 12px 32px ".concat(config.accent, "22");
+    },
+    onMouseLeave: function onMouseLeave(e) {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = 'none';
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      position: 'absolute',
+      top: '-20px',
+      right: '-20px',
+      width: '100px',
+      height: '100px',
+      borderRadius: '50%',
+      background: "".concat(config.accent, "0f"),
+      pointerEvents: 'none'
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      marginBottom: '16px'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      color: config.accent,
+      background: "".concat(config.accent, "18"),
+      borderRadius: '10px',
+      padding: '10px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, config.icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      fontSize: '11px',
+      fontWeight: 600,
+      letterSpacing: '1.5px',
+      textTransform: 'uppercase',
+      color: config.accent,
+      background: "".concat(config.accent, "18"),
+      borderRadius: '20px',
+      padding: '4px 10px'
+    }
+  }, "LIVE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      fontSize: '13px',
+      color: '#6b7280',
+      fontWeight: 500,
+      marginBottom: '6px',
+      letterSpacing: '0.3px'
+    }
+  }, config.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      fontSize: '30px',
+      fontWeight: 700,
+      color: '#111827',
+      lineHeight: 1.1,
+      letterSpacing: '-1px',
+      fontVariantNumeric: 'tabular-nums',
+      minHeight: '44px',
+      transition: 'opacity 0.3s',
+      opacity: isLoading ? 0.3 : 1
+    }
+  }, isLoading ? '—' : formatAnimated(config.key, animated)));
+};
+var minutesAgo = function minutesAgo(date) {
+  if (!date) return null;
+  var diff = Math.floor((Date.now() - date.getTime()) / 60000);
+  if (diff === 0) return 'just now';
+  if (diff === 1) return '1 minute ago';
+  return "".concat(diff, " minutes ago");
+};
+var SifterDashboard = function SifterDashboard() {
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    isAuthenticated = _useState4[0],
+    setIsAuthenticated = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState6 = _slicedToArray(_useState5, 2),
+    stats = _useState6[0],
+    setStats = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    isLoading = _useState8[0],
+    setIsLoading = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState0 = _slicedToArray(_useState9, 2),
+    error = _useState0[0],
+    setError = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState10 = _slicedToArray(_useState1, 2),
+    lastFetched = _useState10[0],
+    setLastFetched = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState12 = _slicedToArray(_useState11, 2),
+    ticker = _useState12[0],
+    setTicker = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    isSpinning = _useState14[0],
+    setIsSpinning = _useState14[1];
+
+  // Check cookie on mount — compare stored hash against expected hash
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var check = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var cookie;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.n) {
+            case 0:
+              cookie = (0,_dashboardPasswordModal__WEBPACK_IMPORTED_MODULE_1__.getAuthCookie)();
+              if (cookie && EXPECTED_HASH && cookie === EXPECTED_HASH) {
+                setIsAuthenticated(true);
+              }
+            case 1:
+              return _context.a(2);
+          }
+        }, _callee);
+      }));
+      return function check() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+    check();
+  }, []);
+  var fetchStats = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+    var res, data, _t;
+    return _regenerator().w(function (_context2) {
+      while (1) switch (_context2.p = _context2.n) {
+        case 0:
+          setIsLoading(true);
+          setError(null);
+          setIsSpinning(true);
+          _context2.p = 1;
+          _context2.n = 2;
+          return fetch(STATS_URL);
+        case 2:
+          res = _context2.v;
+          if (res.ok) {
+            _context2.n = 3;
+            break;
+          }
+          throw new Error("HTTP ".concat(res.status));
+        case 3:
+          _context2.n = 4;
+          return res.json();
+        case 4:
+          data = _context2.v;
+          setStats(data);
+          setLastFetched(new Date());
+          _context2.n = 6;
+          break;
+        case 5:
+          _context2.p = 5;
+          _t = _context2.v;
+          setError(_t.message || 'Failed to load stats');
+        case 6:
+          _context2.p = 6;
+          setIsLoading(false);
+          setTimeout(function () {
+            return setIsSpinning(false);
+          }, 600);
+          return _context2.f(6);
+        case 7:
+          return _context2.a(2);
+      }
+    }, _callee2, null, [[1, 5, 6, 7]]);
+  })), []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchStats();
+    var pollId = setInterval(fetchStats, 5 * 60 * 1000);
+    return function () {
+      return clearInterval(pollId);
+    };
+  }, [fetchStats]);
+
+  // Tick the "minutes ago" label every 30s
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var id = setInterval(function () {
+      return setTicker(function (t) {
+        return t + 1;
+      });
+    }, 30000);
+    return function () {
+      return clearInterval(id);
+    };
+  }, []);
+  if (!isAuthenticated) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_dashboardPasswordModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      isOpen: true,
+      expectedHash: EXPECTED_HASH,
+      onSuccess: function onSuccess() {
+        return setIsAuthenticated(true);
+      }
+    });
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      maxWidth: '1200px',
+      margin: '48px auto',
+      padding: '0 20px',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: '32px',
+      flexWrap: 'wrap',
+      gap: '12px'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    style: {
+      fontSize: '26px',
+      fontWeight: 700,
+      color: '#111827',
+      margin: 0,
+      letterSpacing: '-0.5px'
+    }
+  }, "Sifter Analytics"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    style: {
+      margin: '4px 0 0',
+      color: '#9ca3af',
+      fontSize: '14px'
+    }
+  }, lastFetched ? "Last refreshed ".concat(minutesAgo(lastFetched)) : 'Loading data…')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    onClick: fetchStats,
+    disabled: isLoading,
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      padding: '10px 20px',
+      background: isLoading ? '#e5e7eb' : '#0835DB',
+      color: isLoading ? '#9ca3af' : '#fff',
+      border: 'none',
+      borderRadius: '10px',
+      fontWeight: 600,
+      fontSize: '14px',
+      cursor: isLoading ? 'not-allowed' : 'pointer',
+      letterSpacing: '0.3px',
+      transition: 'background 0.2s, transform 0.15s'
+    },
+    onMouseEnter: function onMouseEnter(e) {
+      if (!isLoading) e.currentTarget.style.background = '#0626b8';
+    },
+    onMouseLeave: function onMouseLeave(e) {
+      if (!isLoading) e.currentTarget.style.background = '#0835DB';
+    },
+    onMouseDown: function onMouseDown(e) {
+      if (!isLoading) e.currentTarget.style.transform = 'scale(0.97)';
+    },
+    onMouseUp: function onMouseUp(e) {
+      e.currentTarget.style.transform = 'scale(1)';
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      width: '16px',
+      height: '16px',
+      animation: isSpinning ? 'sifter-spin 0.6s linear' : 'none'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("polyline", {
+    points: "23 4 23 10 17 10"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", {
+    d: "M20.49 15a9 9 0 1 1-2.12-9.36L23 10"
+  })), isLoading ? 'Refreshing…' : 'Refresh')), error && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      background: '#fef2f2',
+      border: '1px solid #fca5a5',
+      borderRadius: '12px',
+      padding: '16px 20px',
+      color: '#dc2626',
+      marginBottom: '24px',
+      fontSize: '14px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: {
+      width: '18px',
+      height: '18px',
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "10"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("line", {
+    x1: "12",
+    y1: "8",
+    x2: "12",
+    y2: "12"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("line", {
+    x1: "12",
+    y1: "16",
+    x2: "12.01",
+    y2: "16"
+  })), error), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+      gap: '20px'
+    }
+  }, CARD_CONFIG.map(function (config) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(StatCard, {
+      key: config.key,
+      config: config,
+      rawValue: stats ? stats[config.key] : 0,
+      isLoading: isLoading || !stats
+    });
+  })), lastFetched && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    style: {
+      marginTop: '24px',
+      textAlign: 'right',
+      fontSize: '12px',
+      color: '#d1d5db',
+      letterSpacing: '0.2px'
+    }
+  }, "Data as of ", lastFetched.toLocaleTimeString([], {
+    hour: '2-digit',
+    minute: '2-digit'
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("style", null, "\n        @keyframes sifter-spin {\n          from { transform: rotate(0deg); }\n          to   { transform: rotate(360deg); }\n        }\n      "));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SifterDashboard);
 
 /***/ }
 
@@ -32218,6 +33071,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _customAddToCartButtonSifter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customAddToCartButtonSifter */ "./src/js/customAddToCartButtonSifter.jsx");
+/* harmony import */ var _sifterDashBoard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sifterDashBoard */ "./src/js/sifterDashBoard.jsx");
+
 
 
 
@@ -32228,6 +33083,12 @@ var el = document.getElementById('product-form-buttons-holder-react');
 if (el) {
   (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el).render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_customAddToCartButtonSifter__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 }
+document.addEventListener('DOMContentLoaded', function () {
+  var el2 = document.getElementById('sifter-dashboard');
+  if (el2) {
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el2).render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_sifterDashBoard__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+  }
+});
 })();
 
 /******/ })()
