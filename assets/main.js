@@ -31707,9 +31707,17 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   var productPrice = container === null || container === void 0 || (_container$dataset4 = container.dataset) === null || _container$dataset4 === void 0 ? void 0 : _container$dataset4.productPrice;
   var generateSerialNumber = function generateSerialNumber() {
     var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var twoLetters = letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];
-    var fiveNumbers = String(Math.floor(10000 + Math.random() * 90000));
-    return twoLetters + '-' + fiveNumbers;
+    var existing = window.existingSerials || new Set();
+    var serial;
+    do {
+      var twoLetters = letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];
+      var fiveNumbers = String(Math.floor(10000 + Math.random() * 90000));
+      serial = twoLetters + '-' + fiveNumbers;
+    } while (existing.has(serial));
+
+    // Add to set so multiple sifters in same order don't collide
+    existing.add(serial);
+    return serial;
   };
   var handleQuantityChange = function handleQuantityChange(e) {
     var value = parseInt(e.target.value, 10);

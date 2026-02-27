@@ -685,6 +685,7 @@
             data-product-price="{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}"
             ></div>
 
+
           
             {%- if product.metafields.custom.what_s_included_3 != blank -%}
               <div class="product__metafield">
@@ -776,6 +777,16 @@
     </script>
   </div>
 </product-info>
+
+<script>
+  window.existingSerials = new Set([
+    {% for entry in shop.metaobjects.sifter_registry.values %}
+      "{{ entry.web_serial_number.value }}",
+    {% endfor %}
+  ]);
+</script>
+
+
 
 {% schema %}
 {

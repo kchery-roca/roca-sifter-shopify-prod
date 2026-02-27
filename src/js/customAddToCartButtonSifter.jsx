@@ -92,10 +92,18 @@ const CustomAddToCartButtonSifter = () => {
 
   const generateSerialNumber = () => {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const twoLetters =
-      letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];
-    const fiveNumbers = String(Math.floor(10000 + Math.random() * 90000));
-    return twoLetters + '-' + fiveNumbers;
+    const existing = window.existingSerials || new Set();
+    let serial;
+    do {
+      const twoLetters =
+        letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];
+      const fiveNumbers = String(Math.floor(10000 + Math.random() * 90000));
+      serial = twoLetters + '-' + fiveNumbers;
+    } while (existing.has(serial));
+
+    // Add to set so multiple sifters in same order don't collide
+    existing.add(serial);
+    return serial;
   };
 
   const handleQuantityChange = (e) => {
