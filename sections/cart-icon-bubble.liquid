@@ -9,7 +9,7 @@
   {%- liquid
     assign filtered_item_count = 0
     for item in cart.items
-      if item.product.handle != "{{ shop.metafields.global.subscription_variant_id.value.handle }}"
+      if item.product.handle != shop.metafields.global.subscription_variant_id.value.handle
         assign filtered_item_count = filtered_item_count | plus: item.quantity
       endif
     endfor
