@@ -278,7 +278,7 @@
                             {%- endif -%}
                           </div>
 
-                          {% if item.product.handle == 'roca-sifter' %}
+                          {% if item.product.handle == shop.metafields.global.roca_sifter.value.handle %}
                             <cart-bundle-remove-button
                               id="CartDrawer-Bundle-Remove-{{ item.index | plus: 1 }}"
                               data-serial-number="{{ item.properties['Web-Serial-Number'] }}"
