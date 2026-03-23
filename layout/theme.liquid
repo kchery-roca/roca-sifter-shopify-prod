@@ -380,7 +380,7 @@
     {%- endif -%}
   </body>
 
-  {%  if template == 'index' or product.handle == 'service-contract' %}
+  {%  if template == 'index' or product.handle == shop.metafields.global.subscription_variant_id.value.handle %}
     <script>
       window.location.href = '/products/roca-card-sifter'
     </script>
