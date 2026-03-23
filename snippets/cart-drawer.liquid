@@ -134,7 +134,7 @@
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
                         class="
                         cart-item {{ shop.metafields.global.subscription_variant_id.value.handle }} {{ item.product.handle }} {% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %} 
-                        {% if item.product.handle == '{{ shop.metafields.global.subscription_variant_id.value.handle }}' %} !tw-hidden {% endif %}
+                        {% if item.product.handle == shop.metafields.global.subscription_variant_id.value.handle  %} !tw-hidden {% endif %}
                         "
                         style="border: solid 1px #e0e0e0; padding: 2%; margin-bottom: 1.5rem; border-radius: 7px;"
                         role="row"
