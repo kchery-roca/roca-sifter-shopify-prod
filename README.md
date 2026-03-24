@@ -6,9 +6,12 @@ A custom Shopify theme built with Tailwind CSS v3, Webpack, React, and modern de
 
 ## Table of Contents
 
+**Dev**
 - [Dev Setup](docs/dev-setup.md)
-- [Metafield Guru — Shop-Level Config](docs/metafield-guru.md)
 - [Deployment](docs/deployment.md)
+
+**Shop Configurations**
+- [Cart Configuration (Metafield Guru)](docs/metafield-guru.md)
 
 ---
 
