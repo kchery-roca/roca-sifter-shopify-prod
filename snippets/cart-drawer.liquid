@@ -133,8 +133,8 @@
                       <tr
                         id="CartDrawer-Item-{{ item.index | plus: 1 }}"
                         class="
-                        cart-item{% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %} 
-                        {% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %}
+                        cart-item {% if item.parent_relationship.parent != null %} cart-item__nested-line{% endif %} 
+                        {% if item.product.handle == shop.metafields.global.subscription_variant_id.value.handle  %} !tw-hidden {% endif %}
                         "
                         style="border: solid 1px #e0e0e0; padding: 2%; margin-bottom: 1.5rem; border-radius: 7px;"
                         role="row"
@@ -278,7 +278,7 @@
                             {%- endif -%}
                           </div>
 
-                          {% if item.product.handle == 'roca-sifter' %}
+                          {% if item.product.handle == shop.metafields.global.roca_sifter.value.handle %}
                             <cart-bundle-remove-button
                               id="CartDrawer-Bundle-Remove-{{ item.index | plus: 1 }}"
                               data-serial-number="{{ item.properties['Web-Serial-Number'] }}"
@@ -516,7 +516,7 @@
                           </quantity-popover>
                         </td>
                         <td colspan="3" class="!tw-pt-0 !tw-px-0" style="grid-column: 1 / -1;">
-                            <div class="tw-border-2 tw-py-[2%] tw-px-4 tw-rounded-[8px] tw-bg-[#f6f6f7] {% if item.product.handle == 'service-contract' %} !tw-hidden {% endif %}" style="border: solid 2px #0835DB">
+                            <div class="tw-border-2 tw-py-[2%] tw-px-4 tw-rounded-[8px] tw-bg-[#f6f6f7] {% if item.product.handle == shop.metafields.global.subscription_variant_id.value.handle %} !tw-hidden {% endif %}" style="border: solid 2px #0835DB">
                               <p class="tw-mb-2 tw-text-[12px]"> <span class="tw-font-bold">Service Plan:</span> $25/month X 12 months: $300.00</p>
                               <p class="tw-my-2 tw-text-xs tw-tracking-[0px] tw-leading-[20px]">Your card will be charged for the annual subscription 1 week after delivery </p>
                             </div>
