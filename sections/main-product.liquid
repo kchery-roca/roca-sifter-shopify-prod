@@ -681,7 +681,7 @@
           <div id="product-form-buttons-holder-react"
             data-variant-id="{{ product.selected_or_first_available_variant.id }}"
             data-subscription-variant-id="{{ shop.metafields.global.subscription_variant_id.value.variants[0].id }}"
-            data-selling-plan-id="{{ shop.metafields.global.subscription_variant_id.value.selling_plan_allocations[0].selling_plan_id }}"
+            data-selling-plan-id="{{ shop.metafields.global.subscription_variant_id.value.selling_plan_groups[0].selling_plans[0].id }}"
             data-product-price="{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}"
             ></div>
 
