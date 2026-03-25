@@ -785,7 +785,7 @@
     {% endfor %}
   ]);
 
-  console.log("Subscription Variant ID",'{{ shop.metafields.global.subscription_variant_id.value  | json }}')
+  console.log("Subscription Variant ID", {{ shop.metafields.global.subscription_variant_id.value  | json }})
 </script>
 
 
